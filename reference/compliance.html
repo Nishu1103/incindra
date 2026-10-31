@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Incindra Compliance v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a dark field with a network of glass-cube nodes; content sits on the left of each band, the network glows on the right and runs past every edge. One deliberate dark look. */
+:root{
+  --bg:#08120F;        /* the field the network sits in */
+  --surface:#0E1C17;   /* bands and panels */
+  --raised:#14271F;    /* cards that hold a deliverable */
+  --line:rgba(110,231,183,.16);
+  --jade:#6EE7B7;      /* accent, used for light and emphasis */
+  --jade-deep:#047857;
+  --fg:#EAF2EE;
+  --muted:#A9BBB3;
+  --dim:#73877F;
+  --display:"Inter","Inter Display",ui-sans-serif,system-ui,sans-serif;
+  --body:"Inter","Inter Display",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --step--1:.875rem; --step0:1.0625rem; --step1:1.25rem; --step2:1.625rem; --step3:2.25rem; --step4:clamp(2.4rem,5.2vw,4rem);
+  /* The glass cube with a sphere of light: the brand node, identical to the logo's nodes. */
+  --cube:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1.1 -1.1 2.2 2.2'%3E%3Cdefs%3E%3CradialGradient id='o' cx='.36' cy='.34' r='.7'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='.35' stop-color='%23d9fff0'/%3E%3Cstop offset='1' stop-color='%236EE7B7'/%3E%3C/radialGradient%3E%3CradialGradient id='h'%3E%3Cstop offset='0' stop-color='%236EE7B7' stop-opacity='.75'/%3E%3Cstop offset='1' stop-color='%236EE7B7' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpolygon points='0,-0.95 0.823,-0.475 0,0 -0.823,-0.475' fill='%236EE7B7' fill-opacity='.30'/%3E%3Cpolygon points='0.823,-0.475 0.823,0.475 0,0.95 0,0' fill='%236EE7B7' fill-opacity='.17'/%3E%3Cpolygon points='-0.823,-0.475 0,0 0,0.95 -0.823,0.475' fill='%236EE7B7' fill-opacity='.09'/%3E%3Ccircle r='.62' fill='url(%23h)'/%3E%3Cg stroke='%236EE7B7' stroke-opacity='.3' stroke-width='.04'%3E%3Cline x1='0' y1='0' x2='0' y2='-0.95'/%3E%3Cline x1='0' y1='0' x2='0.823' y2='0.475'/%3E%3Cline x1='0' y1='0' x2='-0.823' y2='0.475'/%3E%3C/g%3E%3Ccircle r='.24' fill='url(%23o)'/%3E%3Cg stroke='%236EE7B7' stroke-width='.07' fill='none' stroke-linejoin='round'%3E%3Cline x1='0' y1='0' x2='-0.823' y2='-0.475'/%3E%3Cline x1='0' y1='0' x2='0.823' y2='-0.475'/%3E%3Cline x1='0' y1='0' x2='0' y2='0.95'/%3E%3Cpolygon points='0,-0.95 0.823,-0.475 0.823,0.475 0,0.95 -0.823,0.475 -0.823,-0.475'/%3E%3C/g%3E%3Cline x1='-0.5' y1='-0.4' x2='-0.12' y2='-0.62' stroke='%23ffffff' stroke-opacity='.45' stroke-width='.04'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:var(--step0);line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--jade)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--jade);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;line-height:1.08;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+.eyebrow{font-family:var(--display);font-size:var(--step--1);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--jade)}
+.lede{color:var(--muted);font-size:var(--step1);line-height:1.55;max-width:62ch}
+.cite{font-family:var(--mono);font-size:.82em;color:var(--jade);white-space:nowrap}
+
+/* jewel: the glass cube, the brand's one recurring mark */
+.jewel{display:inline-block;width:1em;height:1em;background:var(--cube) center/contain no-repeat;flex:none;vertical-align:-.12em}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(8,18,15,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
+.brand svg{width:40px;height:40px;flex:none;overflow:visible}
+.word{font-family:var(--body);font-weight:600;font-size:1.6rem;letter-spacing:-.01em;line-height:1}
+/* the i-dot is a glass cube centred over a dotless i */
+.idot{position:relative;display:inline-block}
+.idot::after{content:"";position:absolute;left:50%;top:-.06em;width:.3em;height:.3em;transform:translateX(-50%);background:var(--cube) center/contain no-repeat}
+nav ul{display:flex;gap:20px;white-space:nowrap;list-style:none;margin:0;padding:0;font-family:var(--display);font-size:.95rem;font-weight:500}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--fg)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:1rem;text-decoration:none;border-radius:10px;padding:13px 22px;border:1.5px solid transparent;cursor:pointer}
+.btn-primary{background:var(--jade);color:var(--bg)}
+.btn-primary:hover{background:#8ff0c9}
+.btn-ghost{border-color:rgba(234,242,238,.4);color:var(--fg);background:transparent}
+.btn-ghost:hover{border-color:var(--fg)}
+@media (max-width:1260px){nav ul{display:none}}
+.word{white-space:nowrap}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 50%,rgba(8,18,15,.6) 68%,rgba(8,18,15,0) 86%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(64px,10vw,128px)}
+.hero h1{font-size:var(--step4);max-width:15ch;margin-block:20px 24px}
+.hero .lede{max-width:44ch}
+.creed{font-family:var(--display);font-weight:600;font-size:var(--step1);letter-spacing:.01em;margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.creed span{display:inline-flex;align-items:center;gap:9px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.namecard{margin-top:40px;max-width:58ch;border-left:2px solid var(--jade);padding:4px 0 4px 18px;color:var(--muted);font-size:var(--step--1);line-height:1.55}
+.namecard b{font-family:var(--display);color:var(--fg);font-size:1rem}
+.namecard .say{font-family:var(--mono);color:var(--dim);margin-left:8px}
+@media (max-width:720px){.hero::after{background:linear-gradient(180deg,rgba(8,18,15,.7),var(--bg) 70%)}}
+
+/* sections */
+section{border-bottom:1px solid var(--line)}
+section > .wrap{padding-block:clamp(64px,8vw,104px)}
+.sec-head{display:grid;gap:16px;margin-bottom:44px;max-width:760px}
+.sec-head h2{font-size:var(--step3)}
+.alt{background:var(--surface)}
+
+/* story */
+.story{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.story p+p{margin-top:18px}
+.story .big{font-size:var(--step1);line-height:1.55;color:var(--fg);font-weight:400}
+.story-net{aspect-ratio:1/1;max-width:100%;width:100%}
+@media (max-width:860px){.story{grid-template-columns:1fr}.story-net{max-width:360px;margin:0 auto}}
+
+/* chronology */
+.chrono{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:start}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.checks li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);color:var(--fg)}
+.timeline{background:var(--raised);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.timeline-head{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--display);font-size:var(--step--1);color:var(--muted)}
+.tl-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:.95rem}
+.tl-row:last-child{border-bottom:0}
+.tl-date{font-family:var(--mono);font-size:.8rem;color:var(--dim);font-variant-numeric:tabular-nums;padding-top:3px}
+.tl-row .who{font-family:var(--display);font-weight:600;font-size:.92rem}
+.flag{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-family:var(--display);font-size:.8rem;font-weight:600;color:var(--bg);background:var(--jade);border-radius:6px;padding:3px 9px}
+.flag.amber{background:transparent;color:var(--jade);box-shadow:inset 0 0 0 1.5px var(--jade)}
+.link-line{margin-top:6px;font-size:.88rem;color:var(--muted)}
+.map3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:56px}
+.map3 h3{font-size:var(--step1);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.map3 p{color:var(--muted)}
+@media (max-width:900px){.chrono{grid-template-columns:1fr}.map3{grid-template-columns:1fr}}
+@media (max-width:480px){.tl-row{grid-template-columns:1fr;gap:4px}}
+
+/* depth: two sides */
+.sides{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px}
+.side{background:var(--raised);border:1px solid var(--line);border-radius:16px;padding:30px}
+.side h3{font-size:var(--step2);margin:10px 0 8px}
+.side > p{color:var(--muted)}
+.side-tag{font-family:var(--display);font-size:var(--step--1);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--jade)}
+.depth{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:0;position:relative}
+.depth li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.depth .lvl{display:flex;flex-direction:column;align-items:center;padding-top:4px}
+.depth .lvl i{display:block;width:12px;background:var(--jade);border-radius:2px;opacity:.9}
+.depth b{font-family:var(--display);font-weight:600;display:block}
+.depth span{color:var(--muted);font-size:.95rem}
+.side.expert{background:linear-gradient(180deg,#132a22,var(--raised))}
+.expert ul{list-style:none;margin:24px 0 0;padding:0}
+.expert li{padding:14px 0;border-top:1px solid var(--line)}
+.expert li b{font-family:var(--display);font-weight:600;display:block}
+.expert li span{color:var(--muted);font-size:.95rem}
+.both{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px 24px;color:var(--muted);font-size:.95rem}
+.both b{color:var(--fg);font-family:var(--display)}
+@media (max-width:900px){.sides{grid-template-columns:1fr}}
+
+/* logos */
+.logos{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:start}
+.logos-points{list-style:none;margin:28px 0 0;padding:0}
+.logos-points li{padding:14px 0;border-top:1px solid var(--line);color:var(--muted)}
+.logos-points b{color:var(--fg);font-family:var(--display);font-weight:600}
+.console{background:#060E0B;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px rgba(110,231,183,.05),0 30px 80px -40px rgba(110,231,183,.35)}
+.console-top{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--display);font-weight:600;font-size:.95rem}
+.console-top small{margin-left:auto;font-family:var(--mono);font-weight:400;color:var(--dim);font-size:.75rem}
+.qa{padding:20px 18px;display:grid;gap:16px}
+.q{justify-self:end;max-width:85%;background:var(--raised);border:1px solid var(--line);border-radius:12px 12px 2px 12px;padding:10px 14px;font-family:var(--display);font-size:.95rem}
+.a{max-width:94%;font-size:.95rem;color:var(--fg)}
+.a ol{margin:8px 0 0;padding-left:20px;display:grid;gap:6px;color:var(--muted)}
+.a .silent{margin-top:10px;color:var(--muted);font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 18px}
+.chip{font-family:var(--display);font-size:.82rem;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted);background:transparent;cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--jade);color:var(--fg)}
+.boundary{margin-top:28px;font-family:var(--display);font-size:var(--step1);font-weight:600}
+.boundary em{font-style:normal;color:var(--jade)}
+@media (max-width:900px){.logos{grid-template-columns:1fr}}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s}
+.steps li{border-top:2px solid var(--jade);padding-top:18px;counter-increment:s}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);color:var(--jade);font-size:.85rem}
+.steps h3{font-size:var(--step1);margin:10px 0 8px}
+.steps p{color:var(--muted);font-size:.97rem}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* court */
+.court{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.court div{padding:24px 24px 24px 0;border-bottom:1px solid var(--line)}
+.court h3{font-size:1.1rem;margin-bottom:8px}
+.court p{color:var(--muted);font-size:.97rem}
+@media (max-width:900px){.court{grid-template-columns:1fr}}
+
+/* who */
+.who-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.who-grid div{background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:22px}
+.who-grid h3{font-size:1.1rem;margin-bottom:8px}
+.who-grid p{color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.who-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.who-grid{grid-template-columns:1fr}}
+
+/* cta */
+.cta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+form{display:grid;gap:14px;background:var(--raised);border:1px solid var(--line);border-radius:16px;padding:26px}
+label{font-family:var(--display);font-size:.88rem;font-weight:600;display:grid;gap:6px}
+input,select,textarea{font:inherit;font-family:var(--body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:11px 12px;width:100%}
+textarea{min-height:90px;resize:vertical}
+.note{font-size:.85rem;color:var(--dim)}
+.sent{color:var(--jade);font-family:var(--display);font-weight:600}
+@media (max-width:900px){.cta{grid-template-columns:1fr}}
+
+/* approach */
+.approach{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;align-items:center}
+.graphs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.graph{margin:0;background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:16px}
+.graph.on{border-color:var(--jade);box-shadow:0 0 0 1px rgba(110,231,183,.15),0 24px 60px -36px rgba(110,231,183,.45)}
+.graph svg{width:100%;height:auto;display:block}
+.graph figcaption{margin-top:12px;font-family:var(--display);font-weight:600;font-size:1rem}
+.graph figcaption span{display:block;font-family:var(--body);font-weight:400;color:var(--muted);font-size:.9rem}
+.graph.on figcaption{color:var(--jade)}
+.engine-tag{font-family:var(--display);font-size:var(--step--1);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--jade);margin-bottom:18px}
+.engine{list-style:none;margin:0;padding:0;display:grid;gap:22px}
+.engine li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:start}
+.engine .n{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--jade);display:grid;place-items:center;font-family:var(--mono);color:var(--jade);background:var(--raised)}
+.engine b{font-family:var(--display);font-weight:600;display:block;font-size:1.15rem}
+.engine span{color:var(--muted)}
+.scope{margin-top:40px;font-size:var(--step1);max-width:68ch}
+.scope b{color:var(--jade);font-family:var(--display);font-weight:600}
+.whyus{margin-top:72px}
+.whyus h3.whyus-h{font-size:var(--step2);margin:12px 0 24px}
+.why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.why-grid div{background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:24px}
+.why-grid h4{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:12px 0 8px;line-height:1.25}
+.why-grid p{color:var(--muted);font-size:.97rem}
+@media (max-width:900px){.approach{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.graphs{grid-template-columns:1fr}}
+
+
+/* hero frameworks strip */
+.frames{list-style:none;margin:34px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 10px;max-width:62ch}
+.frames li{font-family:var(--mono);font-size:.78rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:rgba(8,18,15,.6)}
+
+/* compliance */
+.duty-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--raised)}
+.duty{width:100%;min-width:720px;border-collapse:collapse;font-size:.95rem}
+.duty th{text-align:left;font-family:var(--display);font-size:var(--step--1);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--jade);padding:14px 18px;border-bottom:1px solid var(--line)}
+.duty td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--muted)}
+.duty tr:last-child td{border-bottom:0}
+.duty td:first-child{color:var(--fg);font-family:var(--display);font-weight:600;width:22%}
+.duty td:nth-child(2){font-family:var(--mono);font-size:.8rem;color:var(--dim);width:24%}
+.asks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:56px}
+.ask{border-top:2px solid var(--jade);padding-top:18px}
+.ask h3{font-size:var(--step1);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.ask dl{margin:0;display:grid;gap:14px}
+.ask dt{font-family:var(--display);font-weight:600;font-size:.95rem;color:var(--fg)}
+.ask dd{margin:4px 0 0;color:var(--muted);font-size:.95rem}
+.gate{margin-top:56px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:start;background:#060E0B;border:1px solid var(--line);border-radius:16px;padding:30px}
+.gate h3{font-size:var(--step2);margin:10px 0 12px}
+.gate > div > p{color:var(--muted)}
+.gate ul{list-style:none;margin:0;padding:0}
+.gate li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.gate li:first-child{border-top:0}
+.gate .ok{font-family:var(--mono);color:var(--jade);font-size:.9rem;padding-top:2px}
+.gate li b{font-family:var(--display);font-weight:600;display:block}
+.gate li span{color:var(--muted);font-size:.93rem}
+.fine{margin-top:28px;font-size:.88rem;color:var(--dim);max-width:80ch}
+@media (max-width:900px){.asks{grid-template-columns:1fr}.gate{grid-template-columns:1fr}}
+
+
+/* platform API */
+.flow{list-style:none;margin:0 0 48px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
+.flow li{position:relative;padding:16px 18px 16px 0;border-top:1px solid var(--line)}
+.flow li b{font-family:var(--display);font-weight:600;display:block;font-size:1rem}
+.flow li span{color:var(--muted);font-size:.9rem}
+.flow li.us{border-top:2px solid var(--jade)}
+.flow li.us b{color:var(--jade)}
+.flow li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--line)}
+.flow li.us::before{background:var(--jade)}
+@media (max-width:900px){.flow{grid-template-columns:1fr}.flow li{padding-left:22px}.flow li::before{top:22px}}
+.api{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:start}
+.eps{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.eps li{background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.ep{font-family:var(--mono);font-size:.8rem;color:var(--jade)}
+.ep i{font-style:normal;color:var(--bg);background:var(--jade);border-radius:4px;padding:1px 6px;margin-right:8px;font-size:.72rem}
+.eps h3{font-size:1.1rem;margin:8px 0 6px}
+.eps p{color:var(--muted);font-size:.94rem}
+.json{margin:0;padding:18px;font-family:var(--mono);font-size:.78rem;line-height:1.6;color:var(--muted);overflow-x:auto;white-space:pre}
+.json .k{color:var(--fg)}.json .s{color:var(--jade)}.json .bad{color:#F5B97A}
+.api-terms{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:28px;color:var(--muted);font-size:.95rem}
+.api-terms b{color:var(--fg);font-family:var(--display)}
+@media (max-width:900px){.api{grid-template-columns:1fr}}
+
+footer .wrap{padding-block:40px;display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;align-items:center;color:var(--dim);font-size:.9rem}
+footer .brand .word{font-size:1.25rem}
+.tagline{font-family:var(--display);font-weight:600;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--jade)}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}
+.page-hero{border-bottom:1px solid var(--line);background:radial-gradient(ellipse 60% 120% at 85% 40%,rgba(4,120,87,.28),transparent 70%),var(--bg)}
+.page-hero .wrap{padding-block:clamp(56px,8vw,104px)}
+.page-hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);max-width:18ch;margin-block:18px 22px}
+.page-hero .frames{margin-top:28px}</style>
+</head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="cOrb" cx=".36" cy=".34" r=".7"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#d9fff0"/><stop offset="1" stop-color="#6EE7B7"/></radialGradient>
+    <radialGradient id="cHalo"><stop offset="0" stop-color="#6EE7B7" stop-opacity=".75"/><stop offset="1" stop-color="#6EE7B7" stop-opacity="0"/></radialGradient>
+    <symbol id="cube" viewBox="-1 -1 2 2" overflow="visible">
+      <polygon points="0,-0.95 0.823,-0.475 0,0 -0.823,-0.475" fill="#6EE7B7" fill-opacity=".30"/>
+      <polygon points="0.823,-0.475 0.823,0.475 0,0.95 0,0" fill="#6EE7B7" fill-opacity=".17"/>
+      <polygon points="-0.823,-0.475 0,0 0,0.95 -0.823,0.475" fill="#6EE7B7" fill-opacity=".09"/>
+      <circle r=".62" fill="url(#cHalo)"/>
+      <g stroke="#6EE7B7" stroke-opacity=".3" stroke-width=".04"><line x1="0" y1="0" x2="0" y2="-0.95"/><line x1="0" y1="0" x2="0.823" y2="0.475"/><line x1="0" y1="0" x2="-0.823" y2="0.475"/></g>
+      <circle r=".24" fill="url(#cOrb)"/>
+      <g stroke="#6EE7B7" stroke-width=".07" fill="none" stroke-linejoin="round"><line x1="0" y1="0" x2="-0.823" y2="-0.475"/><line x1="0" y1="0" x2="0.823" y2="-0.475"/><line x1="0" y1="0" x2="0" y2="0.95"/><polygon points="0,-0.95 0.823,-0.475 0.823,0.475 0,0.95 -0.823,0.475 -0.823,-0.475"/></g>
+      <line x1="-0.5" y1="-0.4" x2="-0.12" y2="-0.62" stroke="#ffffff" stroke-opacity=".45" stroke-width=".04"/>
+    </symbol>
+    <symbol id="mark" viewBox="0 0 100 100" overflow="visible">
+      <g stroke="#6EE7B7" stroke-width="1.4" fill="none" stroke-linejoin="round" opacity=".85">
+        <path d="M50,10 L84.6,30 L84.6,70 L50,90 L15.4,70 L15.4,30 Z"/>
+        <path d="M50,50 L50,10 M50,50 L84.6,30 M50,50 L84.6,70 M50,50 L50,90 M50,50 L15.4,70 M50,50 L15.4,30"/>
+      </g>
+      <use href="#cube" x="40.5" y="0.5" width="19" height="19"/><use href="#cube" x="75.1" y="20.5" width="19" height="19"/>
+      <use href="#cube" x="75.1" y="60.5" width="19" height="19"/><use href="#cube" x="40.5" y="80.5" width="19" height="19"/>
+      <use href="#cube" x="5.9" y="60.5" width="19" height="19"/><use href="#cube" x="5.9" y="20.5" width="19" height="19"/>
+      <use href="#cube" x="36" y="36" width="28" height="28"/>
+    </symbol>
+  </defs>
+</svg>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="Incindra home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mark"/></svg>
+      <span class="word">Inc<span class="idot">ı</span>ndra</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html#approach">Approach</a></li>
+        <li><a href="index.html#chronology">Chronology</a></li>
+        <li><a href="index.html#depth">Depth</a></li>
+        <li><a href="index.html#logos">Logos Assist</a></li>
+        <li><a href="index.html#method">Method</a></li>
+        <li><a href="compliance.html">Compliance</a></li>
+        <li><a href="index.html#api">Platform API</a></li>
+        <li><a href="index.html#who">Who uses it</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="index.html#demo">Request a demo</a>
+  </div>
+</header>
+<main id="top">
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Compliance</div>
+      <h1>Built for HIPAA and the courtroom.</h1>
+      <p class="lede">Incindra handles protected health information under HIPAA, and its work is built to hold up to judicial scrutiny: cited, reproducible and disclosed.</p>
+      <ul class="frames" aria-label="Frameworks Incindra is designed around">
+        <li>HIPAA</li><li>Federal Rule of Evidence 702</li><li>Daubert and Frye</li><li>ABA Model Rules</li><li>Court and tribunal disclosure orders</li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="hipaa" aria-labelledby="hipaa-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">HIPAA</div>
+        <h2 id="hipaa-h">Protected health information, protected.</h2>
+      </div>
+      <div class="why-grid">
+        <div><i class="jewel" style="font-size:1.6rem"></i><h4>Business associate agreement first</h4><p>Signed before any license or key is issued.</p></div>
+        <div><i class="jewel" style="font-size:1.6rem"></i><h4>Your matter only</h4><p>Records are used for the matter they were submitted for and nothing else.</p></div>
+        <div><i class="jewel" style="font-size:1.6rem"></i><h4>Access you can see</h4><p>Every view, change and export is logged by user and time.</p></div>
+      </div>
+      <h3 style="font-size:var(--step2);margin:56px 0 20px">Deploy it where your records already live</h3>
+      <div class="sides">
+        <article class="side">
+          <div class="side-tag">On-premises</div>
+          <h3>Inside your own network</h3>
+          <p>Incindra runs on your firm's or practice's own systems. Records never leave your network.</p>
+        </article>
+        <article class="side expert">
+          <div class="side-tag">Dedicated virtual machine</div>
+          <h3>A private instance, yours alone</h3>
+          <p>An isolated instance for your organization only, covered by the business associate agreement.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="judicial" class="alt" aria-labelledby="judicial-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Judicial compliance</div>
+        <h2 id="judicial-h">Ready for the questions a court will ask.</h2>
+      </div>
+      <div class="duty-wrap" role="region" aria-label="Judicial questions and how Incindra answers them" tabindex="0">
+        <table class="duty">
+          <thead><tr><th scope="col">What the court asks</th><th scope="col">Where it comes from</th><th scope="col">How Incindra answers</th></tr></thead>
+          <tbody>
+            <tr><td>Is the method reliable?</td><td>Federal Rule of Evidence 702 (amended 2023); Daubert; Frye in Frye states</td><td>Deterministic models: the same records produce the same analysis every time. A written methodology and a version log accompany every report.</td></tr>
+            <tr><td>Is it based on sufficient facts?</td><td>Rule 702(b)</td><td>Every statement is cited to its page in the produced record.</td></tr>
+            <tr><td>Was AI used, and how?</td><td>Court standing orders; tribunal procedural orders</td><td>Every report carries a use statement. The chronology and analyses come from deterministic models. Logos Assist uses AI prompts, and each question is logged.</td></tr>
+            <tr><td>Did a qualified person decide?</td><td>Rule 702(d); ABA Model Rules 1.1 and 5.3</td><td>Incindra organizes and cites. Counsel, arbitrator, mediator or medical expert decides.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="asks">
+        <div class="ask"><h3><i class="jewel"></i>Disclosure</h3><dl>
+          <dt>Was AI used?</dt><dd>The use statement says exactly where and how.</dd></dl></div>
+        <div class="ask"><h3><i class="jewel"></i>Data handling</h3><dl>
+          <dt>Where did the records go?</dt><dd>Inside your own network, or to your dedicated virtual machine under a business associate agreement.</dd></dl></div>
+        <div class="ask"><h3><i class="jewel"></i>Verification</h3><dl>
+          <dt>Can the other side check it?</dt><dd>Every line points to its page.</dd></dl></div>
+      </div>
+
+      <div class="gate">
+        <div>
+          <div class="eyebrow">Release checks</div>
+          <h3>Checked by rules before release</h3>
+          <p>Before any report is released, fixed software checks run on it. A report that fails one does not go out until the failure is fixed.</p>
+        </div>
+        <ul>
+          <li><span class="ok">&#10003;</span><div><b>Every statement cited</b><span>No fact, causal link or flag without a page reference.</span></div></li>
+          <li><span class="ok">&#10003;</span><div><b>Every number adds up</b><span>Totals, durations and counts recomputed from their parts.</span></div></li>
+          <li><span class="ok">&#10003;</span><div><b>Every date matches its source</b><span>Event dates checked against the cited page.</span></div></li>
+          <li><span class="ok">&#10003;</span><div><b>Every fact attributed correctly</b><span>Provider, date and party confirmed for each entry.</span></div></li>
+          <li><span class="ok">&#10003;</span><div><b>Every report reproducible</b><span>Method and knowledge-base versions logged with the report.</span></div></li>
+        </ul>
+      </div>
+      <p class="fine">Incindra supports professional compliance. It does not replace professional judgment or legal advice.</p>
+    </div>
+  </section>
+
+  <section aria-label="Request a demo"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between">
+    <h2 style="font-size:var(--step2)">See a compliant report on your own records.</h2>
+    <a class="btn btn-primary" href="index.html#demo">Request a demo</a></div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Incindra home"><svg viewBox="0 0 100 100" aria-hidden="true" style="width:30px;height:30px"><use href="#mark"/></svg><span class="word">Inc<span class="idot">ı</span>ndra</span></a>
+    <span style="display:grid;gap:6px"><span style="font-family:var(--display);font-weight:600;color:var(--fg)">Every claim under fire. Every causal link, cited.</span><span class="tagline">Impartial · Objective · Cited</span></span>
+    <span>incindra.net · © 2026 INC</span>
+  </div>
+</footer>
+</body></html>
