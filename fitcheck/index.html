@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Incindra Fit Check</title>
+<meta name="description" content="The opposing side may already use AI to read the medical records. Thirty short questions show where you stand, and whether Incindra fits your cases.">
+<link rel="canonical" href="https://incindra.net/fitcheck/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Incindra">
+<meta property="og:title" content="Incindra Fit Check">
+<meta property="og:description" content="The opposing side may already use AI to read the medical records. Thirty short questions show where you stand, and whether Incindra fits your cases.">
+<meta property="og:url" content="https://incindra.net/fitcheck/">
+<meta property="og:image" content="OG_IMAGE_PATH">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Incindra Fit Check">
+<meta name="twitter:description" content="The opposing side may already use AI to read the medical records. Thirty short questions show where you stand, and whether Incindra fits your cases.">
+<meta name="twitter:image" content="OG_IMAGE_PATH">
+<meta name="theme-color" content="#08120F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1.1 -1.1 2.2 2.2'%3E%3Cpolygon points='0,-0.95 0.823,-0.475 0,0 -0.823,-0.475' fill='%236EE7B7' fill-opacity='.30'/%3E%3Cpolygon points='0.823,-0.475 0.823,0.475 0,0.95 0,0' fill='%236EE7B7' fill-opacity='.17'/%3E%3Cpolygon points='-0.823,-0.475 0,0 0,0.95 -0.823,0.475' fill='%236EE7B7' fill-opacity='.09'/%3E%3Ccircle r='.26' fill='%23d9fff0'/%3E%3Cg stroke='%236EE7B7' stroke-width='.1' fill='none' stroke-linejoin='round'%3E%3Cline x1='0' y1='0' x2='-0.823' y2='-0.475'/%3E%3Cline x1='0' y1='0' x2='0.823' y2='-0.475'/%3E%3Cline x1='0' y1='0' x2='0' y2='0.95'/%3E%3Cpolygon points='0,-0.95 0.823,-0.475 0.823,0.475 0,0.95 -0.823,0.475 -0.823,-0.475'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#08120F;--jade:#6EE7B7;--deep:#0F7A5A;--mist:#EEF8F4;--line:#CFE9DF;--muted:#5B6B66;--card:#13241F}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.5}
+.hero{background:var(--ink);color:#fff;padding:48px 24px 56px}
+.wrap{max-width:860px;margin:0 auto}
+.mark{height:42px;display:block;margin-bottom:36px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 14px;font-weight:700}
+.lede{color:var(--jade);font-size:19px;margin:0 0 28px;max-width:640px}
+.btn{display:inline-block;background:var(--jade);color:var(--ink);border:0;border-radius:10px;padding:15px 26px;font:600 17px Inter,Arial,sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--deep);border:2px solid var(--deep)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.small{font-size:14px;color:#9FB3AC;margin-top:14px}
+main{padding:36px 24px 64px}
+.panel{display:none}.panel.on{display:block}
+label{display:block;font-weight:600;font-size:15px;margin:16px 0 6px}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:8px;font:16px Inter,Arial,sans-serif;background:#fff}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+@media(max-width:640px){.row{grid-template-columns:1fr}}
+.check{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:14px;color:var(--muted)}
+.check input{margin-top:3px}
+.progress{height:8px;background:var(--mist);border-radius:6px;overflow:hidden;margin:6px 0 26px}
+.progress>div{height:100%;background:var(--deep);width:0;transition:width .25s}
+.qmeta{color:var(--deep);font-weight:600;font-size:14px;letter-spacing:.02em}
+.qtext{font-size:clamp(21px,3vw,26px);font-weight:700;line-height:1.3;margin:6px 0 22px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.opts{grid-template-columns:1fr}}
+.opt{display:flex;gap:14px;align-items:center;text-align:left;background:var(--mist);border:2px solid var(--mist);border-radius:12px;padding:16px;font:500 17px Inter,Arial,sans-serif;color:var(--ink);cursor:pointer}
+.opt b{flex:0 0 40px;height:40px;border-radius:50%;background:var(--ink);color:var(--jade);display:grid;place-items:center;font-size:18px}
+.opt.sel{border-color:var(--deep);background:#DDF3EA}
+.scale{display:grid;grid-template-columns:repeat(11,1fr);gap:6px}
+.scale button{aspect-ratio:1;border-radius:50%;border:2px solid var(--ink);background:var(--ink);color:var(--jade);font:700 16px Inter,Arial,sans-serif;cursor:pointer;padding:0}
+.scale button.sel{background:var(--jade);color:var(--ink);border-color:var(--deep)}
+.ends{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-top:8px}
+.nav{display:flex;justify-content:space-between;margin-top:30px;gap:12px}
+.score{background:var(--ink);color:#fff;border-radius:16px;padding:30px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}
+@media(max-width:640px){.score{grid-template-columns:1fr}}
+.pct{font-size:72px;font-weight:700;color:var(--jade);line-height:1}
+.band{font-size:21px;font-weight:600;margin:0 0 6px}
+.speaks{margin-top:30px}
+.say{background:var(--ink);color:#fff;border-radius:14px;padding:22px 24px;margin:14px 0}
+.say h3{margin:0 0 4px;font-size:18px}
+.say .who{color:var(--jade);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.say ul{margin:10px 0 0 18px;padding:0}
+.say li{margin:6px 0}
+.say .clear{margin-top:12px;background:var(--card);border-radius:8px;padding:10px 12px;color:#CFE9DF;font-size:15px}
+.say .clear b{color:var(--jade)}
+.cta{border:2px solid var(--deep);border-radius:16px;padding:26px;margin-top:30px}
+.cta h2{margin:0 0 8px}
+details{margin-top:18px}
+.linkbtn{background:none;border:0;color:var(--jade);font:600 14px Inter,Arial,sans-serif;text-decoration:underline;cursor:pointer;padding:0;margin-top:10px}
+.how{background:var(--mist);border-radius:14px;padding:20px 22px;margin-top:16px}
+.how h3{margin:0 0 8px}
+.cbar{display:grid;grid-template-columns:minmax(150px,46%) 1fr 44px;gap:10px;align-items:center;margin:8px 0;font-size:14px}
+.cbar .t{height:10px;background:#fff;border-radius:6px;overflow:hidden}.cbar .t>div{height:100%;background:var(--deep)}
+.btn.placeholder{opacity:.55;cursor:default}
+.ref input{margin-top:6px}
+summary{cursor:pointer;color:var(--deep);font-weight:600}
+.copybox{width:100%;min-height:110px;margin-top:10px;font:13px ui-monospace,Menlo,monospace}
+.note{font-size:13px;color:var(--muted)}
+.sendrow{margin-top:18px;padding-top:18px;border-top:1px solid #1F3A31}
+.sendrow .btn{font-size:18px;padding:16px 28px;margin-bottom:8px}
+footer{background:var(--ink);color:#9FB3AC;font-size:13px;padding:22px 24px;text-align:center}
+footer span{letter-spacing:.18em;color:var(--jade)}
+
+@media print{
+  nav.top,.hero,footer,.btn,.sendrow .note,#sendstate,.progress,#bar,.copyrow,#copy,#copied,.lattice{display:none!important}
+  body,main,.panel,.score,.say,.cta,.how,.copybox,details{background:#fff!important;color:#0B1512!important;box-shadow:none!important}
+  .score,.say,.cta,.how{border:1px solid #CFE9DF!important;break-inside:avoid}
+  h1,h2,h3,legend,.qtext,label,li,p,summary,.who{color:#0B1512!important}
+  .eyebrow,.say .clear b,.who{color:#0B7A55!important}
+  .say .clear{background:#EEF8F4!important;border:none!important}
+  .cbar .t{background:#EEF8F4!important}.cbar .t>div{background:#0B7A55!important}
+  .printhead{display:block!important}
+  details>summary{list-style:none}
+}
+.printhead{display:none}
+
+/* ---- Incindra website look (dark) ---- */
+:root{--bg:#08120F;--bg2:#0C1A16;--panel:#0F1F1A;--card:#13241F;--edge:#1F3A31;--jade:#6EE7B7;--deep:#0F7A5A;--text:#EAF2EE;--soft:#B9CCC5;--muted:#8FA59D}
+body{background:var(--bg2);color:var(--text);-webkit-font-smoothing:antialiased}
+nav.top{position:sticky;top:0;z-index:5;background:rgba(8,18,15,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--edge)}
+nav.top .navin{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px}
+nav.top .navin svg{display:block;height:40px;width:auto}
+nav.top .cat{color:var(--muted);font-size:13px;letter-spacing:.04em}
+.hero{position:relative;overflow:hidden;background:var(--bg);padding:64px 24px 72px;border-bottom:1px solid var(--edge)}
+.hero .wrap.herogrid{max-width:1140px;position:static}
+.herotext{position:relative;z-index:1;max-width:min(620px, calc(47vw - max(24px, (100vw - 1140px) / 2)))}
+.heroart{position:absolute;inset:0;z-index:0}
+.heroart canvas{width:100%;height:100%;display:block}
+.heroart::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 34%,rgba(8,18,15,.55) 48%,rgba(8,18,15,0) 64%);pointer-events:none}
+@media (max-width:900px){.herotext{max-width:none}.heroart::after{background:linear-gradient(180deg,rgba(8,18,15,.75),var(--bg) 65%)}}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{color:var(--jade);font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin:0 0 14px}
+h1{color:var(--text);font-weight:600;letter-spacing:-.02em;max-width:820px;text-wrap:balance}
+h2,h3,legend{color:var(--text)}
+.lede{color:var(--jade);font-weight:500;max-width:600px}
+.body{color:var(--soft);font-size:16px;max-width:600px;margin:0 0 20px}
+.trio{display:flex;gap:22px;flex-wrap:wrap;margin:0 0 28px;font-weight:600;color:var(--text)}
+.trio span{display:inline-flex;align-items:center;gap:8px}
+svg.cube{width:16px;height:16px;overflow:visible}
+.btn{border-radius:8px;font-weight:600;font-size:16px;padding:14px 24px}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid #3A5A4F}
+.btn.ghost:hover{border-color:var(--jade)}
+.btnsub{display:block;font-size:13px;color:var(--muted);margin-top:10px}
+.small{color:var(--muted)}
+main{color:var(--text)}
+.note,.hint{color:var(--muted)}
+label{color:var(--text)}
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],select,textarea{background:var(--bg);color:var(--text);border:1px solid var(--edge)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--jade);box-shadow:0 0 0 3px rgba(110,231,183,.15)}
+input[type=checkbox],input[type=radio]{accent-color:var(--jade)}
+.check{color:var(--soft)}
+.progress{background:var(--card)}.progress>div{background:var(--jade)}
+.qmeta{color:var(--jade);letter-spacing:.18em;text-transform:uppercase;font-size:12px}
+.qtext{color:var(--text);font-weight:600}
+.opt{background:var(--card);border:1px solid var(--edge);color:var(--text)}
+.opt:hover{border-color:#3A5A4F}
+.opt b{background:transparent;border:1.5px solid var(--jade);color:var(--jade);font-size:16px}
+.opt.sel{background:#173A2E;border-color:var(--jade)}
+.scale button{background:var(--card);border:1.5px solid var(--edge);color:var(--jade)}
+.scale button:hover{border-color:var(--jade)}
+.scale button.sel{background:var(--jade);color:var(--bg);border-color:var(--jade)}
+.ends{color:var(--muted)}
+.score,.say,.done{background:var(--panel);border:1px solid var(--edge)}
+.say .clear{background:var(--bg);border:1px solid var(--edge)}
+.cta{border:1px solid var(--jade);background:linear-gradient(180deg,#10261F,var(--panel));box-shadow:0 0 40px rgba(110,231,183,.08)}
+.how{background:var(--panel);border:1px solid var(--edge);color:var(--soft)}
+.cbar .t{background:var(--bg)}.cbar .t>div{background:var(--jade)}
+summary{color:var(--jade)}
+fieldset{border:1px solid var(--edge);background:var(--panel)}
+.kq{background:var(--card);border:1px solid var(--edge)}
+.kq p{color:var(--text)}.kq label{color:var(--soft)}
+.copybox{background:var(--bg);color:var(--soft);border:1px solid var(--edge);border-radius:8px}
+.err{color:#FCA5A5}
+footer{background:var(--bg);border-top:1px solid var(--edge);color:var(--muted);padding:34px 24px}
+footer svg{display:block;margin:0 auto 14px;height:74px;width:auto}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap navin"><a href="../index.html" aria-label="Incindra home"><svg xmlns="http://www.w3.org/2000/svg" height="40" role="img" aria-label="Incindra" viewBox="30 30 1060 290"><defs>
+<radialGradient id="nOrb" cx=".36" cy=".34" r=".7"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#d9fff0"/><stop offset="1" stop-color="#6EE7B7"/></radialGradient>
+<radialGradient id="nHalo"><stop offset="0" stop-color="#6EE7B7" stop-opacity=".75"/><stop offset="1" stop-color="#6EE7B7" stop-opacity="0"/></radialGradient>
+<symbol id="nCube" viewBox="-1 -1 2 2" overflow="visible">
+<polygon points="0,-0.95 0.823,-0.475 0,0 -0.823,-0.475" fill="#6EE7B7" fill-opacity=".30"/>
+<polygon points="0.823,-0.475 0.823,0.475 0,0.95 0,0" fill="#6EE7B7" fill-opacity=".17"/>
+<polygon points="-0.823,-0.475 0,0 0,0.95 -0.823,0.475" fill="#6EE7B7" fill-opacity=".09"/>
+<circle r=".62" fill="url(#nHalo)"/>
+<g stroke="#6EE7B7" stroke-opacity=".3" stroke-width=".04"><line x1="0" y1="0" x2="0" y2="-0.95"/><line x1="0" y1="0" x2="0.823" y2="0.475"/><line x1="0" y1="0" x2="-0.823" y2="0.475"/></g>
+<circle r=".24" fill="url(#nOrb)"/>
+<g stroke="#6EE7B7" stroke-width=".07" fill="none" stroke-linejoin="round"><line x1="0" y1="0" x2="-0.823" y2="-0.475"/><line x1="0" y1="0" x2="0.823" y2="-0.475"/><line x1="0" y1="0" x2="0" y2="0.95"/><polygon points="0,-0.95 0.823,-0.475 0.823,0.475 0,0.95 -0.823,0.475 -0.823,-0.475"/></g>
+<line x1="-0.5" y1="-0.4" x2="-0.12" y2="-0.62" stroke="#ffffff" stroke-opacity=".45" stroke-width=".04"/>
+</symbol></defs><svg x="40" y="40" width="270" height="270" viewBox="0 0 100 100" overflow="visible">
+<g stroke="#6EE7B7" stroke-width="0.9" fill="none" stroke-linejoin="round" opacity=".85">
+<path d="M50,10 L84.6,30 L84.6,70 L50,90 L15.4,70 L15.4,30 Z"/>
+<path d="M50,50 L50,10 M50,50 L84.6,30 M50,50 L84.6,70 M50,50 L50,90 M50,50 L15.4,70 M50,50 L15.4,30"/></g>
+<use href="#nCube" x="40.5" y="0.5" width="19" height="19"/><use href="#nCube" x="75.1" y="20.5" width="19" height="19"/>
+<use href="#nCube" x="75.1" y="60.5" width="19" height="19"/><use href="#nCube" x="40.5" y="80.5" width="19" height="19"/>
+<use href="#nCube" x="5.9" y="60.5" width="19" height="19"/><use href="#nCube" x="5.9" y="20.5" width="19" height="19"/>
+<use href="#nCube" x="36" y="36" width="28" height="28"/></svg><path fill="#EAF2EE" d="M398.6865234375 111.767578125H373.916015625V250.0H398.6865234375ZM447.5263671875 189.2333984375C447.5263671875 174.2041015625 456.8037109375 165.4833984375 469.69921875 165.4833984375C482.31640625 165.4833984375 489.923828125 173.8330078125 489.923828125 187.7490234375V250.0H514.044921875V184.0380859375C514.044921875 159.08203125 499.943359375 144.98046875 478.60546875 144.98046875C463.390625 144.98046875 452.62890625 152.40234375 446.505859375 166.9677734375L446.2275390625 146.279296875H423.4052734375V250.0H447.5263671875ZM582.6455078125 252.1337890625C605.931640625 252.1337890625 623.1875 239.5166015625 627.640625 218.828125L605.0966796875 214.0966796875C602.591796875 225.322265625 594.7060546875 232.55859375 582.8310546875 232.55859375C566.0390625 232.55859375 557.689453125 217.8076171875 557.689453125 198.603515625C557.689453125 179.2138671875 566.0390625 164.5556640625 582.8310546875 164.5556640625C594.5205078125 164.5556640625 602.220703125 171.513671875 604.818359375 182.275390625L627.3623046875 177.5439453125C622.9091796875 157.3193359375 605.74609375 144.98046875 582.6455078125 144.98046875C552.4013671875 144.98046875 533.1044921875 166.4111328125 533.1044921875 198.6962890625C533.1044921875 230.6103515625 552.4013671875 252.1337890625 582.6455078125 252.1337890625ZM646.3291015625 250.0H670.4501953125V146.279296875H646.3291015625ZM718.1767578125 189.2333984375C718.1767578125 174.2041015625 727.4541015625 165.4833984375 740.349609375 165.4833984375C752.966796875 165.4833984375 760.57421875 173.8330078125 760.57421875 187.7490234375V250.0H784.6953125V184.0380859375C784.6953125 159.08203125 770.59375 144.98046875 749.255859375 144.98046875C734.041015625 144.98046875 723.279296875 152.40234375 717.15625 166.9677734375L716.8779296875 146.279296875H694.0556640625V250.0H718.1767578125ZM846.5234375 251.85546875C864.4287109375 251.85546875 872.4072265625 241.09375 876.2109375 233.5791015625H877.6953125V250.0H901.3525390625V111.767578125H877.2314453125V163.4423828125H876.2109375C872.5 156.11328125 864.892578125 144.98046875 846.4306640625 144.98046875C822.4951171875 144.98046875 803.7548828125 163.8134765625 803.7548828125 198.3251953125C803.7548828125 232.373046875 821.9384765625 251.85546875 846.5234375 251.85546875ZM853.1103515625 232.001953125C836.9677734375 232.001953125 828.4326171875 217.71484375 828.4326171875 198.232421875C828.4326171875 178.935546875 836.7822265625 164.833984375 853.1103515625 164.833984375C868.974609375 164.833984375 877.6953125 178.0078125 877.6953125 198.232421875C877.6953125 218.45703125 868.7890625 232.001953125 853.1103515625 232.001953125ZM924.865234375 250.0H948.986328125V188.955078125C948.986328125 175.78125 958.9130859375 166.50390625 972.365234375 166.50390625C976.6328125 166.50390625 981.7353515625 167.1533203125 983.7763671875 167.7099609375V145.537109375C981.45703125 145.166015625 977.6533203125 144.8876953125 974.962890625 144.8876953125C963.087890625 144.8876953125 953.068359375 151.66015625 949.357421875 163.6279296875H948.244140625V146.279296875H924.865234375ZM1027.2353515625 252.1337890625C1043.3779296875 252.1337890625 1053.2119140625 244.619140625 1057.7578125 235.712890625H1058.685546875V250.0H1081.7861328125V180.6982421875C1081.7861328125 153.0517578125 1058.9638671875 144.98046875 1039.4814453125 144.98046875C1018.7001953125 144.98046875 1001.6298828125 153.7939453125 995.5068359375 172.0703125L1017.865234375 176.6162109375C1020.3701171875 169.7509765625 1027.513671875 163.53515625 1039.57421875 163.53515625C1051.3564453125 163.53515625 1057.6650390625 169.47265625 1057.6650390625 179.5849609375V180.048828125C1057.6650390625 187.1923828125 1050.0576171875 187.470703125 1032.0595703125 189.4189453125C1012.0205078125 191.552734375 992.5380859375 197.490234375 992.5380859375 220.869140625C992.5380859375 241.279296875 1007.474609375 252.1337890625 1027.2353515625 252.1337890625ZM1033.451171875 234.228515625C1023.24609375 234.228515625 1015.9169921875 229.58984375 1015.9169921875 220.5908203125C1015.9169921875 211.1279296875 1024.0810546875 207.138671875 1034.935546875 205.654296875C1041.1513671875 204.8193359375 1054.603515625 203.1494140625 1057.8505859375 200.5517578125V212.7978515625C1057.8505859375 224.3017578125 1048.294921875 234.228515625 1033.451171875 234.228515625Z"/><use href="#nCube" x="636.5" y="76.6" width="43.7" height="43.7"/></svg></a><span class="cat">Medical-Legal Analytics</span></div></nav>
+<header class="hero">
+  <div class="wrap herogrid"><div class="herotext">
+    <p class="eyebrow">Fit Check</p>
+    <h1>Are you positioned for the AI challenges of today and tomorrow?</h1>
+    <p class="lede">An eight-minute check of where your practice stands.</p>
+    <p class="body">The opposing side may already use AI to read the medical records. Thirty short questions show where you stand, and whether Incindra fits your cases.</p>
+    <div class="trio"><span><svg class="cube" viewBox="-1 -1 2 2" aria-hidden="true"><use href="#nCube" x="-1" y="-1" width="2" height="2"/></svg>Impartial.</span><span><svg class="cube" viewBox="-1 -1 2 2" aria-hidden="true"><use href="#nCube" x="-1" y="-1" width="2" height="2"/></svg>Objective.</span><span><svg class="cube" viewBox="-1 -1 2 2" aria-hidden="true"><use href="#nCube" x="-1" y="-1" width="2" height="2"/></svg>Cited.</span></div>
+    <button class="btn" id="start">Is Incindra a good fit for you?</button>
+    <span class="btnsub">No client or medical details asked · you see your fit score at the end</span>
+  </div><div class="heroart" aria-hidden="true"><canvas id="heroNet"></canvas></div></div>
+</header>
+
+<main class="wrap">
+  <section class="panel" id="p-info">
+    <h2>About you</h2>
+    <p class="note">So we can send your results. We never ask for client names or medical information.</p>
+    <form id="info">
+      <input type="text" id="gotcha" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <div class="row">
+        <div><label for="name">Your name</label><input id="name" type="text" required autocomplete="name"></div>
+        <div><label for="email">Email</label><input id="email" type="email" required autocomplete="email"></div>
+        <div><label for="firm">Firm</label><input id="firm" type="text" required autocomplete="organization"></div>
+        <div><label for="role">Your role</label><select id="role"><option>Partner</option><option>Associate attorney</option><option>Paralegal or case manager</option><option>Medical expert or consultant</option><option>Other</option></select></div>
+        <div><label for="state">State</label><input id="state" type="text" autocomplete="address-level1"></div>
+        <div><label for="phone">Phone (optional)</label><input id="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="check"><input type="checkbox" id="consent" required><span>I agree that my answers and results are sent to Incindra, and that Incindra may email me my results and occasional updates. I can unsubscribe at any time.</span></div>
+      <div class="nav"><span></span><button class="btn" type="submit">Begin the questions</button></div>
+    </form>
+  </section>
+
+  <section class="panel" id="p-q">
+    <div class="qmeta" id="qmeta"></div>
+    <div class="progress"><div id="bar"></div></div>
+    <div class="qtext" id="qtext"></div>
+    <div id="qbody"></div>
+    <div class="nav"><button class="btn ghost" id="back">Back</button><button class="btn" id="next" disabled>Next</button></div>
+  </section>
+
+  <section class="panel" id="p-result">
+    <div class="printhead"><svg xmlns="http://www.w3.org/2000/svg" height="44" role="img" aria-label="Incindra" viewBox="30 30 1060 290"><defs>
+<radialGradient id="pOrb" cx=".36" cy=".34" r=".7"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#d9fff0"/><stop offset="1" stop-color="#0B7A55"/></radialGradient>
+<radialGradient id="pHalo"><stop offset="0" stop-color="#0B7A55" stop-opacity=".75"/><stop offset="1" stop-color="#0B7A55" stop-opacity="0"/></radialGradient>
+<symbol id="pCube" viewBox="-1 -1 2 2" overflow="visible">
+<polygon points="0,-0.95 0.823,-0.475 0,0 -0.823,-0.475" fill="#0B7A55" fill-opacity=".30"/>
+<polygon points="0.823,-0.475 0.823,0.475 0,0.95 0,0" fill="#0B7A55" fill-opacity=".17"/>
+<polygon points="-0.823,-0.475 0,0 0,0.95 -0.823,0.475" fill="#0B7A55" fill-opacity=".09"/>
+<circle r=".62" fill="url(#pHalo)"/>
+<g stroke="#0B7A55" stroke-opacity=".3" stroke-width=".04"><line x1="0" y1="0" x2="0" y2="-0.95"/><line x1="0" y1="0" x2="0.823" y2="0.475"/><line x1="0" y1="0" x2="-0.823" y2="0.475"/></g>
+<circle r=".24" fill="url(#pOrb)"/>
+<g stroke="#0B7A55" stroke-width=".07" fill="none" stroke-linejoin="round"><line x1="0" y1="0" x2="-0.823" y2="-0.475"/><line x1="0" y1="0" x2="0.823" y2="-0.475"/><line x1="0" y1="0" x2="0" y2="0.95"/><polygon points="0,-0.95 0.823,-0.475 0.823,0.475 0,0.95 -0.823,0.475 -0.823,-0.475"/></g>
+<line x1="-0.5" y1="-0.4" x2="-0.12" y2="-0.62" stroke="#ffffff" stroke-opacity=".45" stroke-width=".04"/>
+</symbol></defs><svg x="40" y="40" width="270" height="270" viewBox="0 0 100 100" overflow="visible">
+<g stroke="#0B7A55" stroke-width="0.9" fill="none" stroke-linejoin="round" opacity=".85">
+<path d="M50,10 L84.6,30 L84.6,70 L50,90 L15.4,70 L15.4,30 Z"/>
+<path d="M50,50 L50,10 M50,50 L84.6,30 M50,50 L84.6,70 M50,50 L50,90 M50,50 L15.4,70 M50,50 L15.4,30"/></g>
+<use href="#pCube" x="40.5" y="0.5" width="19" height="19"/><use href="#pCube" x="75.1" y="20.5" width="19" height="19"/>
+<use href="#pCube" x="75.1" y="60.5" width="19" height="19"/><use href="#pCube" x="40.5" y="80.5" width="19" height="19"/>
+<use href="#pCube" x="5.9" y="60.5" width="19" height="19"/><use href="#pCube" x="5.9" y="20.5" width="19" height="19"/>
+<use href="#pCube" x="36" y="36" width="28" height="28"/></svg><path fill="#0B1512" d="M398.6865234375 111.767578125H373.916015625V250.0H398.6865234375ZM447.5263671875 189.2333984375C447.5263671875 174.2041015625 456.8037109375 165.4833984375 469.69921875 165.4833984375C482.31640625 165.4833984375 489.923828125 173.8330078125 489.923828125 187.7490234375V250.0H514.044921875V184.0380859375C514.044921875 159.08203125 499.943359375 144.98046875 478.60546875 144.98046875C463.390625 144.98046875 452.62890625 152.40234375 446.505859375 166.9677734375L446.2275390625 146.279296875H423.4052734375V250.0H447.5263671875ZM582.6455078125 252.1337890625C605.931640625 252.1337890625 623.1875 239.5166015625 627.640625 218.828125L605.0966796875 214.0966796875C602.591796875 225.322265625 594.7060546875 232.55859375 582.8310546875 232.55859375C566.0390625 232.55859375 557.689453125 217.8076171875 557.689453125 198.603515625C557.689453125 179.2138671875 566.0390625 164.5556640625 582.8310546875 164.5556640625C594.5205078125 164.5556640625 602.220703125 171.513671875 604.818359375 182.275390625L627.3623046875 177.5439453125C622.9091796875 157.3193359375 605.74609375 144.98046875 582.6455078125 144.98046875C552.4013671875 144.98046875 533.1044921875 166.4111328125 533.1044921875 198.6962890625C533.1044921875 230.6103515625 552.4013671875 252.1337890625 582.6455078125 252.1337890625ZM646.3291015625 250.0H670.4501953125V146.279296875H646.3291015625ZM718.1767578125 189.2333984375C718.1767578125 174.2041015625 727.4541015625 165.4833984375 740.349609375 165.4833984375C752.966796875 165.4833984375 760.57421875 173.8330078125 760.57421875 187.7490234375V250.0H784.6953125V184.0380859375C784.6953125 159.08203125 770.59375 144.98046875 749.255859375 144.98046875C734.041015625 144.98046875 723.279296875 152.40234375 717.15625 166.9677734375L716.8779296875 146.279296875H694.0556640625V250.0H718.1767578125ZM846.5234375 251.85546875C864.4287109375 251.85546875 872.4072265625 241.09375 876.2109375 233.5791015625H877.6953125V250.0H901.3525390625V111.767578125H877.2314453125V163.4423828125H876.2109375C872.5 156.11328125 864.892578125 144.98046875 846.4306640625 144.98046875C822.4951171875 144.98046875 803.7548828125 163.8134765625 803.7548828125 198.3251953125C803.7548828125 232.373046875 821.9384765625 251.85546875 846.5234375 251.85546875ZM853.1103515625 232.001953125C836.9677734375 232.001953125 828.4326171875 217.71484375 828.4326171875 198.232421875C828.4326171875 178.935546875 836.7822265625 164.833984375 853.1103515625 164.833984375C868.974609375 164.833984375 877.6953125 178.0078125 877.6953125 198.232421875C877.6953125 218.45703125 868.7890625 232.001953125 853.1103515625 232.001953125ZM924.865234375 250.0H948.986328125V188.955078125C948.986328125 175.78125 958.9130859375 166.50390625 972.365234375 166.50390625C976.6328125 166.50390625 981.7353515625 167.1533203125 983.7763671875 167.7099609375V145.537109375C981.45703125 145.166015625 977.6533203125 144.8876953125 974.962890625 144.8876953125C963.087890625 144.8876953125 953.068359375 151.66015625 949.357421875 163.6279296875H948.244140625V146.279296875H924.865234375ZM1027.2353515625 252.1337890625C1043.3779296875 252.1337890625 1053.2119140625 244.619140625 1057.7578125 235.712890625H1058.685546875V250.0H1081.7861328125V180.6982421875C1081.7861328125 153.0517578125 1058.9638671875 144.98046875 1039.4814453125 144.98046875C1018.7001953125 144.98046875 1001.6298828125 153.7939453125 995.5068359375 172.0703125L1017.865234375 176.6162109375C1020.3701171875 169.7509765625 1027.513671875 163.53515625 1039.57421875 163.53515625C1051.3564453125 163.53515625 1057.6650390625 169.47265625 1057.6650390625 179.5849609375V180.048828125C1057.6650390625 187.1923828125 1050.0576171875 187.470703125 1032.0595703125 189.4189453125C1012.0205078125 191.552734375 992.5380859375 197.490234375 992.5380859375 220.869140625C992.5380859375 241.279296875 1007.474609375 252.1337890625 1027.2353515625 252.1337890625ZM1033.451171875 234.228515625C1023.24609375 234.228515625 1015.9169921875 229.58984375 1015.9169921875 220.5908203125C1015.9169921875 211.1279296875 1024.0810546875 207.138671875 1034.935546875 205.654296875C1041.1513671875 204.8193359375 1054.603515625 203.1494140625 1057.8505859375 200.5517578125V212.7978515625C1057.8505859375 224.3017578125 1048.294921875 234.228515625 1033.451171875 234.228515625Z"/><use href="#pCube" x="636.5" y="76.6" width="43.7" height="43.7"/></svg><p style="margin:6px 0 18px;font-size:13px">Incindra Fit Check results · incindra.net</p></div>
+    <div class="score">
+      <div><div class="pct" id="pct"></div><div class="note" style="color:#9FB3AC">fit to Incindra</div><button class="linkbtn" id="howbtn" type="button">How is this worked out?</button></div>
+      <div><p class="band" id="band"></p><p id="bandtext" style="margin:0;color:#CFE9DF"></p></div>
+    </div>
+
+    <div class="how" id="how" hidden></div>
+    <div class="speaks">
+      <h2>Incindra on what concerns you most</h2>
+      <p class="note">Your two highest-scoring concerns first. The rest follow.</p>
+      <div id="top"></div>
+      <details><summary>Incindra on every question</summary><div id="rest"></div></details>
+      <h2 style="margin-top:30px">Incindra on how you work today</h2>
+      <div id="today"></div>
+    </div>
+
+    <div class="cta" id="cta"></div>
+
+    <details id="answersbox">
+      <summary>Your answers</summary>
+      <p class="note">If they didn't reach us, copy them into an email to info@incindra.net.</p>
+      <textarea class="copybox" id="copybox" readonly></textarea>
+      <button class="btn ghost" id="copy">Copy my answers</button> <span class="note" id="copied"></span>
+    </details>
+    <p class="note" id="sendstate"></p>
+  </section>
+</main>
+
+<footer><svg xmlns="http://www.w3.org/2000/svg" height="74" role="img" aria-label="Incindra" viewBox="0 0 1300 420"><defs>
+<radialGradient id="fOrb" cx=".36" cy=".34" r=".7"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#d9fff0"/><stop offset="1" stop-color="#6EE7B7"/></radialGradient>
+<radialGradient id="fHalo"><stop offset="0" stop-color="#6EE7B7" stop-opacity=".75"/><stop offset="1" stop-color="#6EE7B7" stop-opacity="0"/></radialGradient>
+<symbol id="fCube" viewBox="-1 -1 2 2" overflow="visible">
+<polygon points="0,-0.95 0.823,-0.475 0,0 -0.823,-0.475" fill="#6EE7B7" fill-opacity=".30"/>
+<polygon points="0.823,-0.475 0.823,0.475 0,0.95 0,0" fill="#6EE7B7" fill-opacity=".17"/>
+<polygon points="-0.823,-0.475 0,0 0,0.95 -0.823,0.475" fill="#6EE7B7" fill-opacity=".09"/>
+<circle r=".62" fill="url(#fHalo)"/>
+<g stroke="#6EE7B7" stroke-opacity=".3" stroke-width=".04"><line x1="0" y1="0" x2="0" y2="-0.95"/><line x1="0" y1="0" x2="0.823" y2="0.475"/><line x1="0" y1="0" x2="-0.823" y2="0.475"/></g>
+<circle r=".24" fill="url(#fOrb)"/>
+<g stroke="#6EE7B7" stroke-width=".07" fill="none" stroke-linejoin="round"><line x1="0" y1="0" x2="-0.823" y2="-0.475"/><line x1="0" y1="0" x2="0.823" y2="-0.475"/><line x1="0" y1="0" x2="0" y2="0.95"/><polygon points="0,-0.95 0.823,-0.475 0.823,0.475 0,0.95 -0.823,0.475 -0.823,-0.475"/></g>
+<line x1="-0.5" y1="-0.4" x2="-0.12" y2="-0.62" stroke="#ffffff" stroke-opacity=".45" stroke-width=".04"/>
+</symbol></defs><svg x="40" y="40" width="270" height="270" viewBox="0 0 100 100" overflow="visible">
+<g stroke="#6EE7B7" stroke-width="0.9" fill="none" stroke-linejoin="round" opacity=".85">
+<path d="M50,10 L84.6,30 L84.6,70 L50,90 L15.4,70 L15.4,30 Z"/>
+<path d="M50,50 L50,10 M50,50 L84.6,30 M50,50 L84.6,70 M50,50 L50,90 M50,50 L15.4,70 M50,50 L15.4,30"/></g>
+<use href="#fCube" x="40.5" y="0.5" width="19" height="19"/><use href="#fCube" x="75.1" y="20.5" width="19" height="19"/>
+<use href="#fCube" x="75.1" y="60.5" width="19" height="19"/><use href="#fCube" x="40.5" y="80.5" width="19" height="19"/>
+<use href="#fCube" x="5.9" y="60.5" width="19" height="19"/><use href="#fCube" x="5.9" y="20.5" width="19" height="19"/>
+<use href="#fCube" x="36" y="36" width="28" height="28"/></svg><path fill="#EAF2EE" d="M398.6865234375 111.767578125H373.916015625V250.0H398.6865234375ZM447.5263671875 189.2333984375C447.5263671875 174.2041015625 456.8037109375 165.4833984375 469.69921875 165.4833984375C482.31640625 165.4833984375 489.923828125 173.8330078125 489.923828125 187.7490234375V250.0H514.044921875V184.0380859375C514.044921875 159.08203125 499.943359375 144.98046875 478.60546875 144.98046875C463.390625 144.98046875 452.62890625 152.40234375 446.505859375 166.9677734375L446.2275390625 146.279296875H423.4052734375V250.0H447.5263671875ZM582.6455078125 252.1337890625C605.931640625 252.1337890625 623.1875 239.5166015625 627.640625 218.828125L605.0966796875 214.0966796875C602.591796875 225.322265625 594.7060546875 232.55859375 582.8310546875 232.55859375C566.0390625 232.55859375 557.689453125 217.8076171875 557.689453125 198.603515625C557.689453125 179.2138671875 566.0390625 164.5556640625 582.8310546875 164.5556640625C594.5205078125 164.5556640625 602.220703125 171.513671875 604.818359375 182.275390625L627.3623046875 177.5439453125C622.9091796875 157.3193359375 605.74609375 144.98046875 582.6455078125 144.98046875C552.4013671875 144.98046875 533.1044921875 166.4111328125 533.1044921875 198.6962890625C533.1044921875 230.6103515625 552.4013671875 252.1337890625 582.6455078125 252.1337890625ZM646.3291015625 250.0H670.4501953125V146.279296875H646.3291015625ZM718.1767578125 189.2333984375C718.1767578125 174.2041015625 727.4541015625 165.4833984375 740.349609375 165.4833984375C752.966796875 165.4833984375 760.57421875 173.8330078125 760.57421875 187.7490234375V250.0H784.6953125V184.0380859375C784.6953125 159.08203125 770.59375 144.98046875 749.255859375 144.98046875C734.041015625 144.98046875 723.279296875 152.40234375 717.15625 166.9677734375L716.8779296875 146.279296875H694.0556640625V250.0H718.1767578125ZM846.5234375 251.85546875C864.4287109375 251.85546875 872.4072265625 241.09375 876.2109375 233.5791015625H877.6953125V250.0H901.3525390625V111.767578125H877.2314453125V163.4423828125H876.2109375C872.5 156.11328125 864.892578125 144.98046875 846.4306640625 144.98046875C822.4951171875 144.98046875 803.7548828125 163.8134765625 803.7548828125 198.3251953125C803.7548828125 232.373046875 821.9384765625 251.85546875 846.5234375 251.85546875ZM853.1103515625 232.001953125C836.9677734375 232.001953125 828.4326171875 217.71484375 828.4326171875 198.232421875C828.4326171875 178.935546875 836.7822265625 164.833984375 853.1103515625 164.833984375C868.974609375 164.833984375 877.6953125 178.0078125 877.6953125 198.232421875C877.6953125 218.45703125 868.7890625 232.001953125 853.1103515625 232.001953125ZM924.865234375 250.0H948.986328125V188.955078125C948.986328125 175.78125 958.9130859375 166.50390625 972.365234375 166.50390625C976.6328125 166.50390625 981.7353515625 167.1533203125 983.7763671875 167.7099609375V145.537109375C981.45703125 145.166015625 977.6533203125 144.8876953125 974.962890625 144.8876953125C963.087890625 144.8876953125 953.068359375 151.66015625 949.357421875 163.6279296875H948.244140625V146.279296875H924.865234375ZM1027.2353515625 252.1337890625C1043.3779296875 252.1337890625 1053.2119140625 244.619140625 1057.7578125 235.712890625H1058.685546875V250.0H1081.7861328125V180.6982421875C1081.7861328125 153.0517578125 1058.9638671875 144.98046875 1039.4814453125 144.98046875C1018.7001953125 144.98046875 1001.6298828125 153.7939453125 995.5068359375 172.0703125L1017.865234375 176.6162109375C1020.3701171875 169.7509765625 1027.513671875 163.53515625 1039.57421875 163.53515625C1051.3564453125 163.53515625 1057.6650390625 169.47265625 1057.6650390625 179.5849609375V180.048828125C1057.6650390625 187.1923828125 1050.0576171875 187.470703125 1032.0595703125 189.4189453125C1012.0205078125 191.552734375 992.5380859375 197.490234375 992.5380859375 220.869140625C992.5380859375 241.279296875 1007.474609375 252.1337890625 1027.2353515625 252.1337890625ZM1033.451171875 234.228515625C1023.24609375 234.228515625 1015.9169921875 229.58984375 1015.9169921875 220.5908203125C1015.9169921875 211.1279296875 1024.0810546875 207.138671875 1034.935546875 205.654296875C1041.1513671875 204.8193359375 1054.603515625 203.1494140625 1057.8505859375 200.5517578125V212.7978515625C1057.8505859375 224.3017578125 1048.294921875 234.228515625 1033.451171875 234.228515625Z"/><use href="#fCube" x="636.5" y="76.6" width="43.7" height="43.7"/><path fill="#6EE7B7" d="M381.17089843750006 343.263671875H376.73828125000006V368.0H381.17089843750006ZM392.45136718750007 368.0H396.80097656250007V355.515625C396.80097656250007 353.6396484375 396.70136718750007 350.2197265625 396.63496093750007 347.4140625C397.54804687500007 350.6015625 398.54414062500007 353.9052734375 399.12519531250007 355.515625L403.75703125000007 368.0H407.52558593750007L412.09101562500007 355.515625C412.67207031250007 353.85546875 413.71796875000007 350.4521484375 414.56464843750007 347.28125C414.51484375000007 350.2197265625 414.41523437500007 353.6728515625 414.41523437500007 355.515625V368.0H418.83125000000007V343.263671875H412.14082031250007L407.49238281250007 356.0302734375C407.01093750000007 357.5078125 406.24726562500007 360.5625 405.66621093750007 363.0029296875C405.10175781250007 360.529296875 404.32148437500007 357.4912109375 403.82343750000007 356.0302734375L399.12519531250007 343.263671875H392.45136718750007ZM430.1117187500001 368.0H434.5443359375001V359.6328125H439.2923828125001C445.0033203125001 359.6328125 448.0746093750001 356.1962890625 448.0746093750001 351.4482421875C448.0746093750001 346.7333984375 445.0531250000001 343.263671875 439.3587890625001 343.263671875H430.1117187500001ZM434.5443359375001 355.98046875V346.982421875H438.6781250000001C442.0648437500001 346.982421875 443.5423828125001 348.80859375 443.5423828125001 351.4482421875C443.5423828125001 354.087890625 442.0648437500001 355.98046875 438.7113281250001 355.98046875ZM456.6822265625001 368.0H461.5298828125001L463.5552734375001 361.8740234375H472.8023437500001L474.9107421875001 368.0H479.7750000000001L470.9429687500001 343.263671875H465.3150390625001ZM464.7339843750001 358.3046875 465.7798828125001 355.150390625C466.4605468750001 352.9423828125 467.2076171875001 350.169921875 468.0875000000001 346.716796875C469.0005859375001 350.13671875 469.7808593750001 352.8759765625 470.5113281250001 355.150390625L471.5904296875001 358.3046875ZM489.3787109375001 368.0H493.8113281250001V358.9189453125H498.4265625000001L503.2908203125001 368.0H508.2546875000001L502.8923828125001 358.171875C505.8142578125001 357.009765625 507.3416015625001 354.5361328125 507.3416015625001 351.1826171875C507.3416015625001 346.4677734375 504.3201171875001 343.263671875 498.6257812500001 343.263671875H489.3787109375001ZM493.8113281250001 355.25V346.982421875H497.9451171875001C501.3152343750001 346.982421875 502.8093750000001 348.54296875 502.8093750000001 351.1826171875C502.8093750000001 353.8056640625 501.3152343750001 355.25 497.9783203125001 355.25ZM516.7460937500001 346.9990234375H524.3828125000001V368.0H528.8154296875001V346.9990234375H536.4355468750001V343.263671875H516.7460937500001ZM551.0363281250001 343.263671875H546.6037109375001V368.0H551.0363281250001ZM560.656640625 368.0H565.504296875L567.5296875 361.8740234375H576.7767578125L578.88515625 368.0H583.7494140625L574.9173828125 343.263671875H569.289453125ZM568.7083984375 358.3046875 569.754296875 355.150390625C570.4349609375 352.9423828125 571.18203125 350.169921875 572.0619140625 346.716796875C572.975 350.13671875 573.7552734375 352.8759765625 574.4857421875 355.150390625L575.56484375 358.3046875ZM593.353125 368.0H608.7095703125V364.2646484375H597.7857421875V343.263671875H593.353125ZM636.6660156249999 358.9189453125C638.1601562499999 358.9189453125 639.3388671874999 357.7568359375 639.3388671874999 356.2626953125C639.3388671874999 354.7685546875 638.1601562499999 353.623046875 636.6660156249999 353.623046875C635.1718749999999 353.623046875 634.0097656249999 354.7685546875 634.0097656249999 356.2626953125C634.0097656249999 357.7568359375 635.1718749999999 358.9189453125 636.6660156249999 358.9189453125ZM676.3431640624998 368.33203125C682.8177734374998 368.33203125 687.6820312499998 363.6337890625 687.6820312499998 355.6484375C687.6820312499998 347.646484375 682.8177734374998 342.931640625 676.3431640624998 342.931640625C669.8519531249998 342.931640625 664.9710937499998 347.646484375 664.9710937499998 355.6484375C664.9710937499998 363.6171875 669.8519531249998 368.33203125 676.3431640624998 368.33203125ZM676.3431640624998 364.3642578125C672.2923828124998 364.3642578125 669.4203124999998 361.2763671875 669.4203124999998 355.6484375C669.4203124999998 349.9873046875 672.2923828124998 346.8994140625 676.3431640624998 346.8994140625C680.3607421874998 346.8994140625 683.2162109374998 349.970703125 683.2162109374998 355.6484375C683.2162109374998 361.29296875 680.3607421874998 364.3642578125 676.3431640624998 364.3642578125ZM698.1822265624997 368.0H708.1597656249997C713.8208984374997 368.0 716.5933593749997 365.111328125 716.5933593749997 361.259765625C716.5933593749997 357.5244140625 713.9371093749997 355.3330078125 711.3140624999997 355.2001953125V354.951171875C713.7212890624997 354.38671875 715.6304687499997 352.693359375 715.6304687499997 349.6884765625C715.6304687499997 346.01953125 712.9908203124997 343.263671875 707.6451171874997 343.263671875H698.1822265624997ZM702.6148437499997 364.2978515625V357.009765625H707.6119140624997C710.3677734374997 357.009765625 712.0943359374997 358.7197265625 712.0943359374997 360.927734375C712.0943359374997 362.88671875 710.7330078124997 364.2978515625 707.4624999999997 364.2978515625ZM702.6148437499997 353.8056640625V346.94921875H707.1802734374997C709.8365234374997 346.94921875 711.1978515624997 348.34375 711.1978515624997 350.2529296875C711.1978515624997 352.4443359375 709.4214843749997 353.8056640625 707.0806640624997 353.8056640625ZM733.7009765624997 368.33203125C738.5486328124997 368.33203125 741.6365234374997 365.5927734375 741.6365234374997 360.6787109375V343.263671875H737.2371093749997V360.728515625C737.2371093749997 363.3349609375 735.8425781249997 364.6796875 733.7009765624997 364.6796875C731.5261718749997 364.6796875 730.1316406249997 363.3349609375 730.1316406249997 360.728515625V359.2841796875H725.6990234374997V360.6953125C725.6990234374997 365.5927734375 728.8035156249997 368.33203125 733.7009765624997 368.33203125ZM752.9003906249997 368.0H769.0371093749997V364.2646484375H757.3330078124997V357.3583984375H768.1074218749997V353.6728515625H757.3330078124997V346.9990234375H768.9707031249997V343.263671875H752.9003906249997ZM790.3283203124996 368.33203125C796.1720703124996 368.33203125 800.0900390624996 364.4970703125 800.7707031249996 359.765625H796.2882812499996C795.7238281249996 362.6875 793.3332031249996 364.3642578125 790.3781249999996 364.3642578125C786.3605468749996 364.3642578125 783.4552734374996 361.326171875 783.4552734374996 355.6484375C783.4552734374996 350.037109375 786.3439453124996 346.8994140625 790.3947265624996 346.8994140625C793.3498046874996 346.8994140625 795.7404296874996 348.576171875 796.2882812499996 351.498046875H800.7541015624996C799.9738281249996 346.0859375 795.7570312499996 342.931640625 790.3283203124996 342.931640625C783.8703124999996 342.931640625 779.0060546874996 347.646484375 779.0060546874996 355.6484375C779.0060546874996 363.6171875 783.8205078124996 368.33203125 790.3283203124996 368.33203125ZM810.0257812499996 346.9990234375H817.6624999999996V368.0H822.0951171874996V346.9990234375H829.7152343749996V343.263671875H810.0257812499996ZM844.3160156249995 343.263671875H839.8833984374995V368.0H844.3160156249995ZM862.7517578124995 368.0H868.3630859374995L877.0291015624995 343.263671875H872.1814453124995L867.9314453124995 356.11328125C867.2341796874995 358.3212890625 866.4871093749995 361.02734375 865.5906249999995 364.4638671875C864.6775390624995 361.060546875 863.8806640624995 358.3046875 863.1833984374995 356.11328125L858.8005859374995 343.263671875H853.9363281249995ZM886.6328124999994 368.0H902.7695312499994V364.2646484375H891.0654296874994V357.3583984375H901.8398437499994V353.6728515625H891.0654296874994V346.9990234375H902.7031249999994V343.263671875H886.6328124999994ZM931.3070312499993 358.9189453125C932.8011718749993 358.9189453125 933.9798828124993 357.7568359375 933.9798828124993 356.2626953125C933.9798828124993 354.7685546875 932.8011718749993 353.623046875 931.3070312499993 353.623046875C929.8128906249993 353.623046875 928.6507812499993 354.7685546875 928.6507812499993 356.2626953125C928.6507812499993 357.7568359375 929.8128906249993 358.9189453125 931.3070312499993 358.9189453125ZM970.9343749999992 368.33203125C976.7781249999992 368.33203125 980.6960937499992 364.4970703125 981.3767578124992 359.765625H976.8943359374992C976.3298828124992 362.6875 973.9392578124992 364.3642578125 970.9841796874992 364.3642578125C966.9666015624992 364.3642578125 964.0613281249992 361.326171875 964.0613281249992 355.6484375C964.0613281249992 350.037109375 966.9499999999992 346.8994140625 971.0007812499992 346.8994140625C973.9558593749992 346.8994140625 976.3464843749992 348.576171875 976.8943359374992 351.498046875H981.3601562499992C980.5798828124992 346.0859375 976.3630859374992 342.931640625 970.9343749999992 342.931640625C964.4763671874992 342.931640625 959.6121093749992 347.646484375 959.6121093749992 355.6484375C959.6121093749992 363.6171875 964.4265624999992 368.33203125 970.9343749999992 368.33203125ZM996.1767578124992 343.263671875H991.7441406249992V368.0H996.1767578124992ZM1006.3449218749992 346.9990234375H1013.9816406249992V368.0H1018.4142578124992V346.9990234375H1026.0343749999993V343.263671875H1006.3449218749992ZM1036.2025390624992 368.0H1052.3392578124992V364.2646484375H1040.6351562499992V357.3583984375H1051.4095703124992V353.6728515625H1040.6351562499992V346.9990234375H1052.2728515624992V343.263671875H1036.2025390624992ZM1071.4556640624992 368.0C1078.9927734374992 368.0 1083.4253906249992 363.3349609375 1083.4253906249992 355.5986328125C1083.4253906249992 347.912109375 1078.9927734374992 343.263671875 1071.6216796874992 343.263671875H1063.0884765624992V368.0ZM1067.5210937499992 364.1650390625V347.0986328125H1071.3560546874992C1076.4195312499992 347.0986328125 1079.0591796874992 349.9375 1079.0591796874992 355.5986328125C1079.0591796874992 361.3095703125 1076.4195312499992 364.1650390625 1071.2398437499992 364.1650390625Z"/></svg>Incindra – Medical-Legal Analytics · 1871 NW Gilman Blvd, Issaquah, WA 98027 · 800-688-1183 · incindra.net</footer>
+
+<script>
+// ---- Settings for the website (fill these in when the page goes on incindra.net)
+const SETTINGS = {
+  SUBMIT_URL: "https://formspree.io/f/xgakvkll",  // Formspree endpoint that receives each result; nothing is sent unless it is a full https:// URL
+  CALENDAR_URL: "",     // 15-minute call booking link
+  VIDEO_URL: "",        // Incindra's narrated walkthrough video
+  STRONG: 0.70, POSSIBLE: 0.40
+};
+const DATA = {"Q": [{"id": "Q1", "sec": "AI and your practice", "text": "On a scale of 0 to 10, how concerned are you about AI being used against your cases?", "opts": ["0 = not at all concerned", "", "", "10 = extremely concerned"], "pts": [0, 1, 2, 3]}, {"id": "Q2", "sec": "AI and your practice", "text": "Has opposing counsel used an AI analysis of the records in one of your cases?", "opts": ["No", "Not that I know of", "I suspect so", "Yes"], "pts": [0, 1, 2, 3]}, {"id": "Q3", "sec": "AI and your practice", "text": "What is your firm doing about AI right now?", "opts": ["Nothing, and no plans", "Planning to look at tools", "Tried tools; not satisfied", "Have tools we are happy with"], "pts": [0, 2, 3, 1]}, {"id": "Q4", "sec": "The record today", "text": "On your last brain-injury case with a large record, how long did the medical-record review take?", "opts": ["Under a day", "A few days", "One to two weeks", "More than two weeks"], "pts": [0, 1, 2, 3]}, {"id": "Q5", "sec": "The record today", "text": "Has something important ever surfaced late, at a deposition or in the opposing side's medical exam, that had been in the records all along?", "opts": ["Never", "Once", "A few times", "It happens regularly"], "pts": [0, 1, 2, 3]}, {"id": "Q6", "sec": "The record today", "text": "Do you use a general AI tool (such as Claude or ChatGPT) on medical records?", "opts": ["No, and we won't", "No, but we are considering it", "Yes, and we check its output by hand", "Yes, and we rely on it as is"], "pts": [1, 2, 3, 1]}, {"id": "Q7", "sec": "The record today", "text": "How often do you send records to a nurse reviewer or an outside consultant?", "opts": ["Never", "Occasionally", "On most large cases", "On every brain-injury case"], "pts": [0, 1, 2, 3]}, {"id": "Q8", "sec": "Connecting the systems", "text": "On a case with injuries to several body systems (brain, neck, balance, vision, pain, sleep, mood), who connects how the findings relate?", "opts": ["One retained expert covers it all", "Each expert covers their own specialty; we connect it ourselves", "No one does it systematically", "Our cases rarely involve several systems"], "pts": [1, 2, 3, 0]}, {"id": "Q9", "sec": "Connecting the systems", "text": "How many medical experts do you usually retain on a polytrauma brain-injury case?", "opts": ["We rarely retain experts", "One", "Two or three", "Four or more"], "pts": [0, 1, 2, 3]}, {"id": "Q10", "sec": "Connecting the systems", "text": "Has an expert's opinion in one of your cases been challenged because it didn't account for the full record or another body system?", "opts": ["No", "Not sure", "Once", "More than once"], "pts": [0, 1, 2, 3]}, {"id": "Q11", "sec": "What's coming", "text": "If the medical-record work on your current case were challenged tomorrow, could you show how it was made: reproducible, every statement cited to the page, research for and against?", "opts": ["Yes, fully", "Mostly", "Partly", "No"], "pts": [0, 1, 2, 3]}, {"id": "Q12", "sec": "What's coming", "text": "In the last two years, have you turned down or referred out a case because the medicine was outside what you usually handle?", "opts": ["No", "We don't take those cases", "Once", "More than once"], "pts": [0, 1, 2, 3]}], "P": [{"id": "P1", "sec": "About your firm", "text": "How many attorneys are in your firm?", "opts": ["1", "2 to 4", "5 to 10", "11 or more"], "pts": [1, 1, 1, 0.8]}, {"id": "P2", "sec": "About your firm", "text": "About how many brain-injury or polytrauma cases a year have more than 1,000 pages of medical records?", "opts": ["None", "1 to 5", "6 to 20", "More than 20"], "pts": [0, 0.8, 1, 1]}, {"id": "P3", "sec": "About your firm", "text": "Which side do you usually represent?", "opts": ["Plaintiff", "Defense", "Both", "Other"], "pts": [1, 1, 1, 0.6]}], "SCALE": {"Q1": ["0 = not at all concerned", "10 = extremely concerned"]}, "READY": {"id": "R", "text": "On a scale of 0 to 10, how likely are you to run one finished case through Incindra in the next 30 days?", "ends": ["0 = not at all likely", "10 = extremely likely"]}, "RESEARCH": [{"id": "RT", "sec": "What you use today", "kind": "multi", "text": "What do you use for medical-record review today? Choose all that apply.", "opts": ["Nurse reviewer or consultant", "In-house staff", "General AI (ChatGPT, Claude)", "A legal AI product (EvenUp, Supio, Eve or other)", "Records-review vendor", "Other"]}, {"id": "RP", "sec": "What you use today", "kind": "text", "text": "If you use a product or vendor, which one? (optional)"}, {"id": "RG", "sec": "What you use today", "kind": "multi", "text": "What does your current method give you? Choose all that apply.", "opts": ["Chronology", "Summary", "Bills and costs", "Each fact cited to its page", "Contradictions flagged", "Causal links tested", "Prior history surfaced", "Opposing-expert critique", "Deposition outlines"]}, {"id": "RS", "sec": "What you use today", "kind": "scale", "text": "On a scale of 0 to 10, how satisfied are you with your current method?", "ends": ["0 = not at all satisfied", "10 = completely satisfied"]}, {"id": "RX", "sec": "What you use today", "kind": "text", "text": "What's the one thing you'd change about it? (optional)"}, {"id": "RW", "sec": "What you use today", "text": "Who reviewed the records on your last large case?", "opts": ["An attorney", "A paralegal", "A nurse reviewer or consultant", "A vendor or software tool"]}, {"id": "RC", "sec": "Cost and size", "text": "Roughly what did outside record review cost on your last large case?", "opts": ["Nothing", "Under $500", "$500 to $2,000", "Over $2,000"]}, {"id": "RN", "sec": "Cost and size", "text": "How many pages is a typical large case?", "opts": ["Under 1,000", "1,000 to 3,000", "3,000 to 10,000", "Over 10,000"]}, {"id": "RM", "sec": "Cost and size", "text": "How do you prefer to pay for this kind of work?", "opts": ["Per case", "Per page", "Monthly subscription", "Hourly"]}, {"id": "RA", "sec": "Choosing a tool", "text": "Who approves a new tool or service at your firm?", "opts": ["I do", "A partner", "Several partners together", "Someone else"]}, {"id": "RK", "sec": "Choosing a tool", "kind": "multi", "max": 3, "text": "What would a new tool have to prove before you'd switch? Choose up to three.", "opts": ["Every fact cited to the page", "Same results every run", "Security (HIPAA and a Business Associate Agreement)", "Lower cost", "Faster turnaround", "Neutral, usable by either side", "Works with our case-management software"]}, {"id": "RCM", "sec": "Choosing a tool", "text": "Which case-management software do you use?", "opts": ["Filevine", "Litify", "CASEpeer", "Clio", "SmartAdvocate", "Needles", "Other"]}, {"id": "RH", "sec": "Choosing a tool", "text": "Where do you usually hear about new tools?", "opts": ["Colleagues", "Conferences and courses", "Podcasts", "Vendors or online"]}, {"id": "RV", "sec": "A side-by-side test", "text": "Would you run one finished case through Incindra and compare it side by side with what you got before?", "opts": ["Yes", "Maybe, tell me more", "No"]}]};
+const ANS = {"Q1": ["AI on the other side of your case", ["I read every page, every provider and the prior records into one case knowledge graph.", "32 advanced queries test the record: causal links, the weight of each claim, gaps, contradictions and false logic.", "I flag the weak points in your own case before the opposing side finds them."], "I don’t predict how a court will rule. I show you the record."], "Q2": ["When the opposing side has AI", ["The opposing side may already use AI to read the same medical records.", "What matters is what can be checked: every claim I make is cited to its page and checked against that page.", "Same record, same version, same findings, whoever runs it."], "The other side can use me too, unless you set up an exclusivity retainer with an Incindra medical expert."], "Q3": ["Bringing AI into your firm safely", ["One agreement, including a Business Associate Agreement, is signed before any record is loaded.", "Records stay within my boundaries, on your own control plane, and you can delete them at any time.", "Every run is versioned, and each report records where AI was used and which versions ran."], "SOC 2 is planned, not done yet."], "Q4": ["Reading isn’t the hard part", ["I read the whole record in one run, typically within a few hours, depending on its size.", "The hard part is connecting the facts across providers, years and body systems. That is what I am built for.", "Your team checks cited findings instead of building the connections by hand."], "You still read the pages that matter. I show you which ones."], "Q5": ["Surprises at deposition", ["My red team flags conflicts between providers, like a 7-out-of-10 headache in the ER and “denies headache” at a later intake.", "I surface prior history and alternative explanations from records before the incident.", "I list records the chart refers to that aren’t in your production."], "Some of what I flag will hurt your case. Better you see it first."], "Q6": ["Deterministic, not probabilistic", ["A general AI chatbot is probabilistic: ask the same question twice and the answer can change.", "My causal links, flags and 32 advanced queries are deterministic: the same record on the same version gives the same findings.", "Logos Assist, my question-and-answer part, is probabilistic and labeled that way, with each answer tied to its page."], "Keep the tools you like. I add repeatability, citations and the connections."], "Q7": ["Beyond outside review", ["32 advanced queries go where a summary stops: causal links tested for timing and alternatives, the weight of each claim, a red team, confounders, tests and scales, opposing reports and deposition outlines.", "You pay per source page and per query, for what the case needs: order queries one at a time, or all 32 in a full report.", "A full report is double-checked before it reaches you, and gives you access to Incindra consultants."], "Consultants are independent experts. Their review, opinion and any follow-up are billed by them, not by Incindra."], "Q8": ["Integrated systems analysis", ["One case knowledge graph across providers, prior records and body systems: brain, spine, balance, vision, hearing, pain, sleep, mood and hormones.", "Each causal link is tested for timing, alternatives and research support, then given a weight.", "A claim resting on one weak piece of evidence gets caught."], "Not everything connects. I show what connects and what doesn’t."], "Q9": ["Your experts and the whole record", ["Some experts cover one system; some cover several. Either way, each works from the same whole-record map.", "Findings beyond an expert’s own range are in front of them, cited, before deposition.", "Each expert sees how the systems they cover connect to the rest of the record."], "I don’t replace your experts. I give them the whole record."], "Q10": ["Opinions that miss the record", ["My red team checks an opinion against the whole record: gaps, omissions, overstatement and analytical gaps.", "Each opinion is set beside the records it does or doesn’t account for, with the weight of its support.", "Courts now apply the expert-evidence rule more strictly. The whole record matters."], "I don’t judge an opinion. You and your expert decide."], "Q11": ["Showing how the work was made", ["Deterministic: the same record on the same version gives the same findings.", "Auditable: every run records the model, ontology and evidence library versions used.", "Every claim cited to the page, with research for and against shown."], "My accuracy hasn’t been measured yet. The fairest test is a case you already know."], "Q12": ["Cases outside your usual medicine", ["I read every body system in a polytrauma record, not just the brain-injury pages.", "I show you the medicine, the gaps and the open questions early, before you decide.", "I help you see which kind of expert to retain."], "I don’t replace the expert, or your judgment on whether to take the case."]};
+const ANS2 = [
+  ["Questions 16–17", "Whatever you use now", ["Nurse reviewers, staff, general AI and legal AI products all read the record. I read it and connect it.", "You don’t have to replace your current method to test me. Run one finished case and compare.", "Every finding is cited to its page, so your team can check me against what you have now."], "I won’t tell you another product is wrong. You make the comparison, on your own case."],
+  ["Question 18", "Past the chronology", ["A chronology and summary are the starting point. I give you both, with an executive summary.", "32 advanced queries go further: causal links tested, the weight of each claim, provider conflicts, prior history, opposing reports and deposition outlines.", "Each box you didn’t tick is something you can test on a finished case."], "Not every case needs all 32 queries. You order only the ones your case needs."],
+  ["Questions 19–20", "Raising the bar", ["If you’re happy with what you have, the fair test is whether I find something it missed, on a case you already know.", "If you’re not, the one thing you’d change is where the side-by-side starts.", "The same record on the same version gives the same findings, so the comparison is stable."], "I’ll show you what I catch. If I don’t catch more, I’m not the right fit for you."],
+  ["Question 23", "Records of any size", ["Every source page costs the same, however large the record.", "I read the whole record in one run, usually within a few hours, depending on its size.", "When new records arrive, I reprocess the whole record at a reduced page rate, so every connection stays complete."], "Send the complete record the first time. I connect it best when I see everything at once."],
+  ["Question 24", "Pay for what the case needs", ["The chronology is priced per source page. Each advanced analysis is priced per query.", "You don’t need a subscription to start.", "If it fits, your first case is at no charge: a chronology plus three queries, up to 1,000 source pages."], "Questions you ask Logos Assist are billed per question."],
+  ["Question 26", "What I have to prove", ["Every claim is cited to its page and checked against that page.", "The same record on the same version gives the same findings, and every run records which versions were used.", "One agreement, including a Business Associate Agreement, is signed before any record is loaded. You can delete records at any time."], "SOC 2 is planned, not done yet. My accuracy hasn’t been measured yet."],
+  ["Question 27", "Your case-management software", ["I don’t connect directly to case-management software. You upload the records and download the reports.", "Reports are files you can keep in any system your firm uses.", "Every report carries a version number, so the copy in your file matches the run that produced it."], "Your answer helps us decide whether a direct connection is worth building."]
+];
+const CONCERNS = [
+  ["Piece 1: When the other side has AI", ["Q1","Q2","Q3"]],
+  ["Piece 2: Will the record work survive a challenge?", ["Q6","Q11"]],
+  ["Piece 3: It was in the records all along", ["Q4","Q5","Q7"]],
+  ["Piece 4: Who connects the body systems?", ["Q8","Q9"]],
+  ["Piece 5: When an expert stays in one lane", ["Q10"]],
+  ["Piece 6: Taking cases outside your usual medicine", ["Q12"]]
+];
+const ITEMS = [...DATA.Q.map(q=>({...q,kind:DATA.SCALE[q.id]?"scale":"abcd"})), ...DATA.P.map(p=>({...p,kind:"abcd"})),
+               ...DATA.RESEARCH.map(r=>({...r, sec:r.sec||"Your firm's approach", kind:r.kind||"abcd"})),
+               {id:"R", sec:"One last question", text:DATA.READY.text, kind:"scale", ends:DATA.READY.ends}];
+const L = ["A","B","C","D"]; const LL = "ABCDEFGHIJ".split("");
+const answers = {}; let idx = 0, info = {};
+const $ = id => document.getElementById(id);
+function show(id){document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id===id)); document.getElementById(id).scrollIntoView({behavior:"smooth",block:"start"});}
+$("start").onclick = () => show("p-info");
+$("info").addEventListener("submit", e => {
+  e.preventDefault();
+  info = {name:$("name").value.trim(), email:$("email").value.trim(), firm:$("firm").value.trim(), role:$("role").value, state:$("state").value.trim(), phone:$("phone").value.trim(), consent:$("consent").checked};
+  idx = 0; renderQ(); show("p-q");
+});
+function renderQ(){
+  const it = ITEMS[idx];
+  $("qmeta").textContent = `Question ${idx+1} of ${ITEMS.length} · ${it.sec}`;
+  $("bar").style.width = `${(idx)/ITEMS.length*100}%`;
+  $("qtext").textContent = it.text;
+  const body = $("qbody"); body.innerHTML = "";
+  if (it.kind === "scale"){
+    const ends = it.ends || DATA.SCALE[it.id];
+    const s = document.createElement("div"); s.className = "scale";
+    for (let i=0;i<=10;i++){ const b=document.createElement("button"); b.type="button"; b.textContent=i; b.setAttribute("aria-label",`${i} out of 10`);
+      if (answers[it.id]===i) b.classList.add("sel");
+      b.onclick=()=>{answers[it.id]=i; renderQ();}; s.appendChild(b); }
+    body.appendChild(s);
+    const e=document.createElement("div"); e.className="ends"; e.innerHTML=`<span>${ends[0]}</span><span>${ends[ends.length-1]}</span>`; body.appendChild(e);
+  } else if (it.kind === "multi"){
+    const cur = answers[it.id] || [];
+    const o = document.createElement("div"); o.className="opts";
+    it.opts.forEach((t,i)=>{ const b=document.createElement("button"); b.type="button"; b.className="opt"+(cur.includes(LL[i])?" sel":"");
+      b.innerHTML=`<b>${LL[i]}</b><span></span>`; b.querySelector("span").textContent=t;
+      b.onclick=()=>{ let a=[...(answers[it.id]||[])]; if(a.includes(LL[i])) a=a.filter(x=>x!==LL[i]); else if(!it.max||a.length<it.max) a.push(LL[i]); a.sort(); answers[it.id]=a.length?a:undefined; renderQ(); };
+      o.appendChild(b); });
+    body.appendChild(o);
+    if (it.max){ const n=document.createElement("p"); n.className="note"; n.textContent=`Choose up to ${it.max}.`; body.appendChild(n); }
+  } else if (it.kind === "text"){
+    if (answers[it.id]===undefined) answers[it.id]="";
+    const ta=document.createElement("textarea"); ta.rows=3; ta.value=answers[it.id]; ta.placeholder="No client names or medical details, please."; ta.oninput=()=>{answers[it.id]=ta.value;}; body.appendChild(ta);
+  } else {
+    const o = document.createElement("div"); o.className="opts";
+    it.opts.forEach((t,i)=>{ const b=document.createElement("button"); b.type="button"; b.className="opt"+(answers[it.id]===LL[i]?" sel":"");
+      b.innerHTML=`<b>${LL[i]}</b><span></span>`; b.querySelector("span").textContent=t; b.onclick=()=>{answers[it.id]=LL[i]; renderQ();}; o.appendChild(b); });
+    body.appendChild(o);
+  }
+  $("back").style.visibility = idx===0 ? "hidden":"visible";
+  $("next").disabled = answers[it.id]===undefined;
+  $("next").textContent = idx===ITEMS.length-1 ? "See my fit" : "Next";
+}
+$("back").onclick = () => { if(idx>0){idx--; renderQ();} };
+$("next").onclick = () => { if(idx<ITEMS.length-1){idx++; renderQ();} else results(); };
+
+function pts(q){ const a=answers[q.id]; if(a===undefined) return 0;
+  if (DATA.SCALE[q.id]) return Math.min(10,Math.max(0,a))/10*3;
+  return q.pts[L.indexOf(a)]; }
+function results(){ try { _results(); } catch(e){ $("sendstate").textContent = "Something went wrong working out your fit. Please refresh and try again."; show("p-result"); console.error(e); } }
+$("howbtn").onclick = () => { const h=$("how"); h.hidden=!h.hidden; $("howbtn").textContent = h.hidden ? "How is this worked out?" : "Hide the working"; };
+function _results(){
+  const P = {}; DATA.Q.forEach(q=>P[q.id]=pts(q));
+  const max = DATA.Q.reduce((s,q)=>s+Math.max(...q.pts),0);
+  const need = Object.values(P).reduce((s,v)=>s+v,0)/max;
+  const factor = DATA.P.reduce((f,p)=>{const a=answers[p.id]; return f*(a?p.pts[L.indexOf(a)]:1);},1);
+  const match = need*factor;
+  const pct = Math.round(match*100);
+  const cscore = CONCERNS.map((c,i)=>({i, name:c[0], qs:c[1], v:c[1].reduce((s,q)=>s+P[q],0)/c[1].length/3 - (i+1)/1e5}));
+  const ranked = [...cscore].sort((a,b)=>b.v-a.v);
+  $("pct").textContent = pct+"%";
+  const answered = DATA.Q.filter(q=>answers[q.id]!==undefined).length;
+  $("how").innerHTML = `<h3>How your fit is worked out</h3>
+    <p>Questions 1–12 each score 0 to 3 points: higher means your answer points more strongly to a problem Incindra was built for. Question 1 (0–10) counts as your answer ÷ 10 × 3.</p>
+    <p><b>Need:</b> ${Math.round(need*100)}% of the points available &nbsp;·&nbsp; <b>Firm profile:</b> × ${factor.toFixed(2)} (questions 13–15: firm size, large-record cases, side) &nbsp;·&nbsp; <b>Fit:</b> ${pct}%</p>
+    <p class="note">Questions 16–30 help Incindra understand firms like yours. They don’t change your score.</p>
+    <h3 style="margin-top:14px">Your concerns, highest first</h3>` +
+    ranked.map(c=>`<div class="cbar"><span>${c.name.replace(/^Piece \d+: /,"")}</span><span class="t"><div style="width:${Math.max(0,Math.round(c.v*100))}%"></div></span><span>${Math.max(0,Math.round(c.v*100))}%</span></div>`).join("");
+  let band, text;
+  if (match>=SETTINGS.STRONG){ band="A strong fit"; text="Your answers match what Incindra was built for. The next step is a 15-minute call to choose one of your finished cases for a no-charge trial."; }
+  else if (match>=SETTINGS.POSSIBLE){ band="A possible fit"; text="Some of your answers match what Incindra was built for. Watch the walkthrough, then book a short call if it raises questions."; }
+  else { band="Not a fit right now"; text="From your answers, Incindra isn't the right fit for your cases right now, and we'd rather tell you that than sell you something that doesn't fit."; }
+  $("band").textContent = band; $("bandtext").textContent = text;
+  // Incindra speaks: questions in the top two concerns first
+  const topQs = [...new Set([...ranked[0].qs, ...ranked[1].qs])];
+  $("top").innerHTML = ""; $("rest").innerHTML = "";
+  DATA.Q.forEach((q,i)=>{ const a=ANS[q.id]; if(!a) return;
+    const el=document.createElement("div"); el.className="say";
+    el.innerHTML=`<div class="who">Question ${i+1} · how I handle it</div><h3></h3><ul></ul><div class="clear"><b>To be clear: </b><span></span></div>`;
+    el.querySelector("h3").textContent=a[0]; a[1].forEach(t=>{const li=document.createElement("li"); li.textContent=t; el.querySelector("ul").appendChild(li);});
+    el.querySelector(".clear span").textContent=a[2];
+    (topQs.includes(q.id)?$("top"):$("rest")).appendChild(el); });
+  $("today").innerHTML = "";
+  ANS2.forEach(a=>{ const el=document.createElement("div"); el.className="say";
+    el.innerHTML=`<div class="who"></div><h3></h3><ul></ul><div class="clear"><b>To be clear: </b><span></span></div>`;
+    el.querySelector(".who").textContent=a[0]+" · how I handle it"; el.querySelector("h3").textContent=a[1];
+    a[2].forEach(t=>{const li=document.createElement("li"); li.textContent=t; el.querySelector("ul").appendChild(li);});
+    el.querySelector(".clear span").textContent=a[3]; $("today").appendChild(el); });
+  // call to action
+  const cal = SETTINGS.CALENDAR_URL ? `<a class="btn" href="${SETTINGS.CALENDAR_URL}" target="_blank" rel="noopener">Book a 15-minute call</a>` : `<span class="btn placeholder" title="Mock-up: on the live site this opens your booking calendar">Book a 15-minute call</span>`;
+  const vid = SETTINGS.VIDEO_URL ? `<a class="btn ghost" href="${SETTINGS.VIDEO_URL}" target="_blank" rel="noopener">Watch Incindra's walkthrough</a>` : `<span class="btn ghost placeholder" title="Mock-up: on the live site this plays Incindra's narrated walkthrough">Watch Incindra's walkthrough</span>`;
+  const mock = (!SETTINGS.CALENDAR_URL || !SETTINGS.VIDEO_URL) ? `<p class="note">Mock-up: the call and video buttons go live once the calendar and video links are added.</p>` : "";
+  if (match>=SETTINGS.STRONG) $("cta").innerHTML = `<h2>Run one of your finished cases, at no charge</h2><p>A chronology plus three queries, up to 1,000 source pages. We agree three success criteria before it starts, and review the results with your partner. A full report (the chronology and all 32 queries) is double-checked before it reaches you, and gives you access to independent Incindra consultants, who bill for their own time.</p><p>${cal} ${vid}</p>${mock}`;
+  else if (match>=SETTINGS.POSSIBLE) $("cta").innerHTML = `<h2>See how it works on a sample case</h2><p>Then, if it fits, run one of your finished cases at no charge: a chronology plus three queries, up to 1,000 source pages.</p><p>${vid} ${cal}</p>${mock}`;
+  else $("cta").innerHTML = `<h2>Thank you for your time</h2><p>If you know a firm that handles brain-injury or polytrauma cases with large records, we'd be grateful for an introduction.</p><div class="ref"><label for="refname">Who else handles these cases? (optional)</label><input id="refname" type="text" placeholder="Name and firm"><input id="refemail" type="email" placeholder="Their email, if you'd like to share it"></div>`;
+  // record
+  const record = {submitted:new Date().toISOString(), ...info, answers:{...answers}, match_pct:pct, band, lead_concern:ranked[0].name, second_concern:ranked[1].name, ready_0_10:answers.R, research:{current_methods:answers.RT, current_product:answers.RP, current_gives:answers.RG, satisfaction_0_10:answers.RS, would_change:answers.RX, reviewed_by:answers.RW, cost:answers.RC, typical_pages:answers.RN, pricing_preference:answers.RM, approves:answers.RA, must_prove:answers.RK, case_management:answers.RCM, hears_from:answers.RH, side_by_side:answers.RV}};
+  const refEl = $("refname"); if (refEl) { const upd=()=>{record.referral={name:$("refname").value, email:$("refemail").value};}; $("refname").oninput=upd; $("refemail").oninput=upd; $("refname").onchange=$("refemail").onchange=()=>sendReferral(record); }
+  const line = ITEMS.map((it,i)=>`${i+1}${typeof answers[it.id]==="number"?" = "+answers[it.id]:answers[it.id]}`).join(", ");
+  $("copybox").value = `Name: ${info.name}\nFirm: ${info.firm}\nEmail: ${info.email}\nRole: ${info.role}\nState: ${info.state}\nAnswers: ${line}\nFit: ${pct}% (${band})\nLead concern: ${ranked[0].name}`;
+  const mail = "mailto:info@incindra.net?subject=" + encodeURIComponent("Fit Check results - " + (info.firm||info.name)) + "&body=" + encodeURIComponent($("copybox").value + "\n\nPlease contact me about next steps.");
+  $("cta").insertAdjacentHTML("afterbegin", `<p class="eyebrow">Your next step</p>`);
+  $("cta").insertAdjacentHTML("beforeend", `<div class="sendrow"><a class="btn" id="sendmail" href="${mail}" target="_blank" rel="noopener">Email my results to Incindra</a> <button class="btn ghost" id="printres" type="button">Print or save my results</button> <a class="btn ghost" id="guidepdf" href="/fitcheck/how-incindra-handles-your-answers.pdf" download="Incindra Fit Check - how Incindra handles your answers.pdf" type="application/pdf">Download: how Incindra handles your answers (PDF)</a><p class="note">Email opens your own email with your answers already filled in. Press send and Incindra will reply to set up the next step. Print lets you print your results or save them as a PDF.</p></div>`);
+  show("p-result"); $("bar").style.width="100%";
+  $("printres").onclick = () => { document.querySelectorAll("#p-result details").forEach(d=>d.open=true); try { window.print(); } catch(e) { $("sendstate").textContent = "Printing is blocked in this preview. Use your browser\u2019s Print command instead."; } };
+  if (sendable()){
+    post(flatten(record))
+      .then(r=>{$("sendstate").textContent = r.ok ? "Your results were sent to Incindra." : "Your results could not be sent. Please copy them into an email to info@incindra.net.";})
+      .catch(()=>{$("sendstate").textContent="Your results could not be sent. Please copy them into an email to info@incindra.net.";});
+  } else {
+    $("sendstate").textContent = "";
+  }
+}
+// ---- Sending results to Formspree
+function sendable(){ return /^https?:\/\//.test(SETTINGS.SUBMIT_URL); }
+function post(data){ return fetch(SETTINGS.SUBMIT_URL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)}); }
+// Formspree shows nested objects as raw JSON, so the contact details, the fit and each answer go in as their own readable fields.
+function flatten(rec){
+  const out = {_subject:"Incindra Fit Check result", _gotcha:$("gotcha").value,
+    name:rec.name, email:rec.email, firm:rec.firm, role:rec.role, state:rec.state, phone:rec.phone, consent:rec.consent?"Yes":"No",
+    fit:rec.match_pct+"% ("+rec.band+")", lead_concern:rec.lead_concern, second_concern:rec.second_concern, ready_0_10:rec.ready_0_10, submitted:rec.submitted};
+  ITEMS.forEach((it,i)=>{ const a=rec.answers[it.id]; let v;
+    if (a===undefined||a==="") v="(no answer)";
+    else if (typeof a==="number") v=a+" / 10";
+    else if (Array.isArray(a)) v=a.map(l=>l+". "+it.opts[LL.indexOf(l)]).join("; ");
+    else if (it.kind==="text") v=a;
+    else v=a+". "+it.opts[LL.indexOf(a)];
+    out["Q"+String(i+1).padStart(2,"0")+" "+it.text]=v; });
+  return out;
+}
+// The referral box appears after the result is sent, so a referral goes in as a short follow-up, once the typing settles.
+let refTimer=0;
+function sendReferral(rec){
+  clearTimeout(refTimer);
+  refTimer=setTimeout(()=>{ const r=rec.referral||{}; if(!sendable()||!(r.name||r.email)) return;
+    post({_subject:"Incindra Fit Check referral", _gotcha:$("gotcha").value, name:rec.name, email:rec.email, firm:rec.firm, referral_name:r.name, referral_email:r.email}).catch(()=>{}); }, 1200);
+}
+$("copy").onclick = async () => { try { await navigator.clipboard.writeText($("copybox").value); $("copied").textContent="Copied."; } catch(e){ $("copybox").select(); $("copied").textContent="Select the text and copy it."; } };
+</script>
+<script src="../assets/hero.js"></script>
+</body>
+</html>
